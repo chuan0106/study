@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>测试工具函数</h2>
+    <input class="get" type="button" value="测试get">
+    <input class="post" type="button" value="测试post">
+    <input class="ajax_test" type="button" value="ajax_test">
+    <input class="ajax" type="button" value="ajax">
+    <input class="json" type="button" value="获取json">
+    <input class="xml" type="button" value="获取xml">
+</body>
+
+</html>
+<!-- 导入js -->
+<script src="./ajax.js"></script>
+<script>
+    // get 请求
+    document.querySelector('.get').onclick = function () {
+
+        // 直接调用get方法
+        // function get(url, data, success) {
+        get('../00.backData/01.backSendData.php', 'name=jack&friend=雨神', function (data) {
+            console.log(data);
+        });
+    }
+</script>
+
+<script>
+    // post 请求
+    document.querySelector('.post').onclick = function () {
+
+        // 直接调用get方法
+        // function get(url, data, success) {
+        post('../00.backData/01.backSendData.php', 'name=青椒&friend=雨神', function (data) {
+            alert(data);
+        });
+    }
+    document.querySelector('.ajax_test').onclick = function () {
+        // ajax_test('../00.backData/01.backSendData.php', 'get', 'name=青椒&friend=雨神', function (data) {
+        //     console.log(data);
+        // })
+        ajax_test('../00.backData/01.backSendData.php', 'post', 'name=蛇精&friend=雨神', function (data) {
+            console.log(data);
+        })
+    }
+
+    // ajax 值传递一个参数
+    document.querySelector('.ajax').onclick = function () {
+        ajax({
+            url: '../00.backData/01.backSendData.php',
+            type: 'get',
+            data: 'skill=爱吃罗薄荷青菜 蹦蹦跳跳好可爱&&name=兔子',
+            success: function (data) {
+                document.body.innerHTML = data;
+            }
+        })
+    }
+    document.querySelector('.json').onclick = function () {
+        ajax({
+            type: 'get',
+            // url: '../00.backData/backJSON.php',
+            url: '../00.backData/data/person.json',
+            success: function (data) {
+                console.log(data);
+            }
+        })
+    }
+    document.querySelector('.xml').onclick = function () {
+        ajax({
+            type: 'post',
+            // url: '../00.backData/backXML.php',
+            url: '../00.backData/data/person.xml',
+            success: function (data) {
+                console.log(data);
+            }
+        })
+    }
+
+</script>

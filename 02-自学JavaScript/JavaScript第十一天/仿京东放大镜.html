@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .imgContent {
+            width: 420px;
+            height: 300px;
+            position: relative;
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+
+        .imgContent>img {
+            width: 420px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgcontent" id="imgContent1">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488436622116&di=e3c2b2a5c847d6051d8daaec9a9a2131&imgtype=0&src=http%3A%2F%2F2a.zol-img.com.cn%2Fproduct%2F174_1200x900%2F888%2FceeY9tJ1QRFLk.jpg"
+            alt="iphone7">
+    </div>
+</body>
+<script>
+    /*大致功能的思路：(完全按照自己的想法去实现的功能，肯定有很多地方优化，希望大家一起讨论)
+    1、有一个放原始图片的盒子
+    2、当鼠标移入这个盒子，在右侧创建一个相同大小的镜像盒子，镜像盒子里创建一个放大4倍的镜像图片，同时也在原始盒子里创建一个放大镜（若存在就display:block，若不存在就创建，镜像盒子同理）
+    3、当鼠标移动时，原始盒子里的放大镜跟随鼠标移动（类似拖拽功能），镜像盒子里的图片的top和left值是原始盒子里放大镜的top和left值的-4倍
+    4、当鼠标移出原始盒子时,隐藏镜像盒子和放大镜*/
+    function Scaler(id) {
+        var me = this
+        var originalDiv = document.querySelector("#" + id)
+        var mirrorDiv = null
+        var mirrorImg = null
+        var scaler = null
+        var real_left = originalDiv.offsetLeft
+        var real_right = originalDiv.offsetWidth + originalDiv.offsetLeft
+        var real_top = originalDiv.offsetTop
+        var real_bottom = originalDiv.offsetHeight + originalDiv.offsetTop
+        //创建镜像盒子
+        this.createMirror = function () {
+            var originalStyle = getComputedStyle(originalDiv)
+            mirrorDiv = document.createElement("div")
+            mirrorDiv.style.cssText = 'width:' + originalStyle.width +
+                ';height:' + originalStyle.height +
+                ';position:absolute;left:' + originalStyle.width +
+                ';top:0px;margin-left:10px;overflow:hidden;';
+            //创建镜像图片
+            mirrorImg = document.createElement("img")
+            mirrorImg.style.cssText = 'width:' + (originalDiv.offsetWidth * 4) +
+                'px;height:' + originalDiv.offsetHeight * 4 + 'px;position:absolute;top:0px;left:0px;'
+            mirrorImg.src = document.querySelector("#" + id + " img").src
+            mirrorDiv.appendChild(mirrorImg)
+            originalDiv.appendChild(mirrorDiv)
+        }
+        //创建放大镜
+        this.createScaler = function (left, top) {
+            scaler = document.createElement("div")
+            scaler.style.cssText = 'width:100px;height:100px;background-color:yellow;opacity:0.4;position:absolute;'
+            scaler.style.top = top;
+            scaler.style.left = left;
+            originalDiv.appendChild(scaler)
+        }
+        //设置镜像图片位置
+        this.setImgPosition = function (left, top) {
+            mirrorImg.style.left = '-' + left + 'px'
+            mirrorImg.style.top = '-' + top + 'px'
+        }
+        //鼠标移入事件
+        this.e_mouseover = function () {
+            originalDiv.style.cursor = "move"
+            if (!mirrorDiv) {
+                me.createMirror()
+            } else {
+                mirrorDiv.style.display = "block"
+            };
+            if (!scaler) {
+                me.createScaler(0, 0)
+            } else {
+                scaler.style.display = "block"
+            };
+        }
+        //鼠标移出事件
+        this.e_mouseleave = function () {
+            mirrorDiv.style.display = "none"
+            scaler.style.display = "none"
+        }
+        //鼠标移动事件(关键代码)
+        this.e_mousemove = function (e) {
+            // 判断鼠标是否移出原始盒子
+            if (e.clientX > real_right || e.clientX < real_left || e.clientY > real_bottom || e.clientY < real_top) {
+                me.e_mouseleave()
+                return false
+            };
+            // 鼠标到原始盒子顶部的距离
+            var padTop = e.clientY - real_top
+            // 鼠标到原始盒子左侧的距离
+            var padLeft = e.clientX - real_left
+            //放大镜跟随鼠标移动(-50是因为让鼠标在放大镜的中心)
+            scaler.style.top = padTop - 50;
+            scaler.style.left = padLeft - 50;
+            //因为镜像图片放大了4倍，所以跟随移动的时候是4倍
+            me.setImgPosition((padLeft - 50) * 4, (padTop - 50) * 4)
+        }
+        //注册事件监听
+        originalDiv.onmouseover = me.e_mouseover
+        originalDiv.onmouseleave = me.e_mouseleave
+        originalDiv.onmousemove = function (e) {
+            me.e_mousemove(e)
+        }
+    }
+    // 创建图片放大功能对象,参数为原始盒子id即可(放大镜大小，镜像图片放大倍数都可设为参数传递)
+    new Scaler("imgContent1")
+</script>
+
+</html>

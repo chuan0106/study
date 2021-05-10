@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var mModal1 = new mModal({
+            title: "提示", // 标题，默认：提示
+            width: "25%", // 弹出框宽度，默认 25%
+            top: "15vh", // 距离可视区域顶部距离 CSS中 margin-top 值
+            content: "正文内容什么", // 正文，默认：正文内容
+            cancelText: "取 消", // 取消按钮文本
+            confirmText: "确 定", // 确定按钮文本
+            showCancelButton: true, // 是否显示取消按钮
+            showConfirmButton: true, // 是否显示确定按钮
+            showClose: true, // 是否显示关闭按钮
+            modal: true, // 是否需要遮罩层
+            customClass: "", // 自定义类名confirm
+            confirm: function () {
+                alert("确定弹框1");
+                mModal1.close();
+            },
+            cancel: function () {
+                alert("取消弹框1")
+            }
+        });
+        mModal1.renderDom();
+    </script>
+</body>
+
+</html>

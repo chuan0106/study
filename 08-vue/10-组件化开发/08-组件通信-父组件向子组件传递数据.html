@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="../js/vue.js"></script>
+
+<body>
+  <div id="app">
+    <cpn :message="msg" :movies="mis"> </cpn>
+    <cpn :movies="mis"> </cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      {{message}}
+      <ul>
+        <li v-for="item in movies" :key="item.id">
+          {{ item }}
+        </li>
+      </ul>
+      {{ movies}}
+    </div>
+  </template>
+</body>
+<script>
+  let cpn = {
+    template: '#cpn',
+    // props: ['message', 'movies'],
+
+    // 并没有写全  参考 MongoDB Schema 用到到时候查询即可
+    props: {
+      // 1.类型的限制
+      // message: String,   // 对象的好处: 可以要求是字符串类型
+      // movies: Array   // 要求是数组类型
+
+      // 2.提供一些默认值 以及必须传入的值
+      message: {
+        type: String,
+        default: '川哥哥你真帅',  // 默认川哥哥你真帅   :message="msg" 就是 你好啊,小帅哥
+        required: true   //  必须的 必须传  // 因为第二个 cpn 没传 所以报错
+      },
+
+      // 对象或者数组是 默认值必须是一个函数
+      movies: {
+        type: Array,
+        // default: []  // vue2.5.17一下
+        default() {
+          return []
+        }
+      }
+    }
+  }
+  const app = new Vue({
+    el: '#app',
+    data: {
+      msg: '你好啊,小帅哥',
+      mis: ['海王', '海贼王', '葫芦娃']
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+
+</html>

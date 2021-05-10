@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>json接口演示</h2>
+    <input type="button" value="妹子图">
+    <input type="button" value="手机归属地">
+</body>
+<script src="../JQuery.min.js"></script>
+<script>
+    $(function () {
+        $('input').first().click(function () {
+            console.log(111);
+            $.ajax({
+                url: 'https://api.asilu.com/query/image/baidu/',
+                success: function (data) {
+                    console.log(data);
+                },
+                dataType: 'json'
+            })
+
+        })
+        $('input').eq(1).click(function () {
+            console.log(111);
+            $.ajax({
+                url: 'https://api.asilu.com/phone/',
+                data: '17513790106',
+                success: function (data) {
+                    console.log(data);
+                },
+                dataType: 'json'
+            })
+        })
+    })
+</script>
+
+</html>

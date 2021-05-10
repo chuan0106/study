@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <div></div>
+    <script>
+
+        var div = document.querySelector('div');
+        var btn = document.querySelector('button');
+        var timer = 5;
+        btn.addEventListener('click', function () {
+            // console.log(window.location.href);
+            location.href = 'http://www.baidu.com';
+        })
+        fn();
+        setInterval(fn, 1000)
+        function fn() {
+            if (timer == 0) {
+                location.href = 'http://chuan0106.3vfree.net/';
+            } else {
+                div.innerHTML = '您将在' + timer + '秒后跳转页面';
+                timer--;
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

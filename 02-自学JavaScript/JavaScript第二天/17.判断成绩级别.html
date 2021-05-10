@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var score = prompt('请输入您的成绩');
+        if (score >= 90) {
+            alert('宝贝 你真是我的骄傲');
+        } else if (score >= '80') {
+            alert('宝贝 你真棒');
+        } else if (score >= 70) {
+            alert('宝贝 你还需要加油呢');
+        } else if (score >= 60) {
+            alert('你才刚及格？');
+        } else {
+            alert('劳资抽死你');
+        }
+    </script>
+</head>
+
+<body>
+    按照从大到小判断的思路 <br>
+    弹出prompt输入框， 让用户输入分数（score），把这个值取过来保存到变量中<br>
+    使用多分支 if else if 语句来分别判断输出不同的值
+</body>
+
+</html>

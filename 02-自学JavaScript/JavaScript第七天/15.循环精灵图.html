@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 250px;
+        height: 180px;
+        margin: 100px auto;
+        /* background-color: skyblue; */
+
+    }
+
+    .box li {
+        float: left;
+        width: 24px;
+        height: 24px;
+        background-color: pink;
+        margin: 10px 0 30px 30px;
+        background: url(/images/jlt.png);
+    }
+</style>
+
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        // 1.获取所有li 会形成伪数组
+        var list = document.querySelectorAll('li');
+        // 2.使用for循环来设置每个li的背景图
+        for (var i = 0; i < list.length; i++) {
+            // 通过设置精灵图的y坐标来设置不同li的背景图
+            // 让索引号*44就是每个li的背景y坐标，index就是我们的y坐标
+            var index = i * 44;
+
+            // console.log(index);
+            list[i].style.backgroundPosition = '0 -' + index + 'px';
+        }
+    </script>
+
+</body>
+
+</html>

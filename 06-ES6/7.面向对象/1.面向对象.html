@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function User(name, pass) {
+            this.name = name;
+            this.pass = pass;
+        }
+        User.prototype.showName = function () {
+            alert(this.name);
+        }
+        User.prototype.showPass = function () {
+            console.log(this.pass);
+        }
+        var ul = new User('blue', '123456');
+        ul.showName();
+        ul.showPass();
+    </script>
+</body>
+
+</html>

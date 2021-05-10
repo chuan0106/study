@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            var img = document.querySelector('img');
+            // 1 setInterval 
+            // 语法规范： window.setInterval(调用函数,延时时间);
+            setInterval(function () {
+                console.log('嘿嘿嘿');
+            }, 3000)
+        })
+        // 2 setTimeout 延时时间到了 就去调用跟这个回调函数 只调用一次就结束
+        // 3 setInterval 延时时间到了 就去调用跟这个回调函数 会重复调用
+    </script>
+</head>
+
+<body>
+    <img src="/images/羽神1.jpg" alt="">
+</body>
+
+</html>

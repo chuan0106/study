@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <script>
+        var btn = document.querySelectorAll('button');
+        // 1 传统方式注册侧事件
+        btn[0].onclick = function () {
+            alert('你好');
+        }
+        btn[0].onclick = function () {
+            alert('你好 我也好');
+        }
+        // 事件侦听注册事件  addEventListener 里面的时间是字符串  必须带引号  不带on
+        btn[1].addEventListener('click', function () {
+            alert('22');
+        });
+        btn[1].addEventListener('click', function () {
+            alert('222');
+        });
+        btn[1].addEventListener('click', function () {
+            alert('252');
+        });
+        btn[1].addEventListener('click', function () {
+            alert('262');
+        });
+        btn[1].addEventListener('click', function () {
+            alert('822');
+        });
+
+
+
+
+
+
+        btn[0].addEventListener('click', function () {
+            prompt('哈哈');
+        })
+// 同一个元素 同一个事件可以添加多个侦听器(事件处理程序)
+
+    </script>
+
+</body>
+
+</html>

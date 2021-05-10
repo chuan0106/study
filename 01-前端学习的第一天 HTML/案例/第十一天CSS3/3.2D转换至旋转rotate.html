@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        width: 200px;
+        border: 5px solid pink;
+        border-radius: 50%;
+        /* 顺时针旋转45度 */
+        transform: rotate(45deg);
+        /* 过度写到本身上 谁做动画给谁加 */
+        transition: all 3s;
+    }
+
+    img:hover {
+        transform: rotate(360deg);
+    }
+</style>
+
+<body>
+    <img src="../images/羽神4.jpg" alt="">
+</body>
+
+</html>

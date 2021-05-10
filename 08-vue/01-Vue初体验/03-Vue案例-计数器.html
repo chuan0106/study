@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="../js/vue.js"></script>
+
+<body>
+  <div id="app">
+    <h2>当前计数: {{counter}} </h2>
+    <!-- <button v-on:click="counter++">+</button>
+        <button v-on:click="counter--">-</button> -->
+    <button v-on:click="add">+</button>
+    <button v-on:click="sub">-</button>
+  </div>
+
+  <script>
+    // proxy
+    const obj = {
+      counter: 0
+    }
+    const app = new Vue({
+      el: '#app',  // 挂载app
+      data: obj,  // 定义数据
+      methods: {
+        // 定义方法
+        add: function () {
+          console.log('add被加载')
+          this.counter++
+        },
+        sub: function () {
+          console.log('sub被加载')
+          this.counter--
+        }
+      }
+    })
+  </script>
+  <!-- <script>
+        let btn = document.querySelectorAll('button')
+        let counter = 0;
+
+        btn[0].addEventListener('click', function () {
+            counter++
+            console.log(counter);
+        })
+        btn[1].addEventListener('click', function () {
+            counter--
+            console.log(counter);
+        })
+        console.log(counter);
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="ys">羽神</button>
+    <button id="gy">关羽</button> <br />
+    <img src="/images/羽神1.jpg" alt="" />
+    <script>
+      // 修改元素属性  src
+      // 1 获取元素
+      var ys = document.getElementById("ys");
+      var gs = document.getElementById("gy");
+      var img = document.querySelector("img");
+      
+      // 2 注册事件
+      gs.onclick = function () {
+        img.src = "/images/羽神2.jpg";
+        img.title = "关羽";
+      };
+      ys.onclick = function () {
+        img.src = "/images/羽神1.jpg";
+        img.title = "羽神";
+      };
+    </script>
+  </body>
+</html>

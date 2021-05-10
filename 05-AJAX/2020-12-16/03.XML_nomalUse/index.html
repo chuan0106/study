@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>请求xml文件</h2>
+    <input type="button" value="ajax 获取xml文件">
+</body>
+<script>
+    document.querySelector('input').onclick = function () {
+        // 1 创建对象
+        var xhr = new XMLHttpRequest();
+        // 2 设置请求行(get请求数据写在url后面)
+        xhr.open('post', './backXML.php');
+        // 3 设置请求头(get请求可以省略 post 不发送数据也可以省略)
+        //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // 3.5 注册回调函数
+        xhr.onreadystatechange = function () {
+            if (xhr.responseText == 4 && xhr.status == 200) {
+                console.log(xhr.responseXML);
+                // 页面中默认的文档对象
+                console.log(document);
+                // 解析 
+                console.log(xhr.responseXML.querySelector('name').innerHTML);
+                console.log(xhr.responseXML.querySelector('age').innerHTML);
+                console.log(xhr.responseXML.querySelector('sex').innerHTML);
+                console.log(xhr.responseXML.querySelector('skill').innerHTML);
+
+                // 获取信息
+
+                var name = xhr.responseXML.querySelector('name').innerHTML;
+                var age = xhr.responseXML.querySelector('age').innerHTML;
+                var sex = xhr.responseXML.querySelector('sex').innerHTML;
+                var skill = xhr.responseXML.querySelector('skill').innerHTML;
+                // 设置给dom元素
+                document.querySelector('h3').innerHTML = name + '--' + age + '--' + sex;
+            }
+        }
+        // 4 请求主体发送(get请求为空 或者null post 请求数据卸载这里 如果没有数据 直接为空 或者null)
+        xhr.send(null);
+    }
+</script>
+
+</html>

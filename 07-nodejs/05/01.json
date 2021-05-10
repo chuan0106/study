@@ -1,0 +1,19 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "张三三",
+      "gender": "0",
+      "age": "22",
+      "hobbies": "吃饭、睡觉、打豆豆 摸泡泡"
+    },
+    { "name": "大萨达所", "gender": "0", "age": "1", "hobbies": "1", "id": 2 },
+    {
+      "name": "大萨达所",
+      "gender": "0",
+      "age": "1",
+      "hobbies": "312321",
+      "id": 3
+    }
+  ]
+}

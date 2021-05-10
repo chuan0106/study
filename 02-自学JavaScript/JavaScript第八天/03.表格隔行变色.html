@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    .bg {
+        background-color: pink;
+    }
+</style>
+
+<body>
+
+    <body>
+        <table id="tb1" border="1" border-collapse="collapse" cellpadding="5" width="400" height="20" cellspacing="0"
+            bordercolor="#99cccc">
+            <thead>
+                <tr>
+                    <td>编号</td>
+                    <td>作品</td>
+                    <td>时间</td>
+                </tr>
+            </thead>
+            <tbody id="tb2">
+                <tr>
+                    <td>1</td>
+                    <td>回忆三部曲</td>
+                    <td>1995</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>未麻的部屋</td>
+                    <td>1997</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>千年女优</td>
+                    <td>2001</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>妄想代理人</td>
+                    <td>2004</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>红辣椒</td>
+                    <td>2006</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>东京教父</td>
+                    <td>2003</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            // 1 获取元素 获取的是tbody里面所有的行
+            var trs = document.querySelector('tbody').querySelectorAll('tr');
+            for (var i = 0; i < trs.length; i++) {
+                trs[i].onmouseover = function () {
+                    this.className = 'bg';
+                }
+                trs[i].onmouseout = function () {
+                    this.className = '';
+                }
+            }
+        </script>
+    </body>
+
+</html>

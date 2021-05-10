@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [
+            { title: '男士衬衫', price: 75 },
+            { title: '女士包', price: 75000 },
+            { title: '男士包', price: 65 },
+            { title: '男士靴子', price: 25605 },
+        ]
+        let esuArr = arr.filter(json => json.price >= 10000);
+        // let esuArr = arr.filter(item => item.price >= 10000);
+        console.log(esuArr);
+
+
+        var JSONObject = '{"name":"刘亦菲","skill":"失忆"}';
+        console.log(JSONObject);
+        // 转化为 对应的 对象(数组)
+        var obj = JSON.parse(JSONObject);
+        console.log(obj);
+
+    </script>
+</body>
+
+</html>

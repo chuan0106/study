@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<!-- 导入模板引擎 -->
+<script src="../template-web.js"></script>
+<!-- 逻辑语句 -->
+<script id="ifTemplate" type="text/html">
+<ul>
+    {{if male=='女'}}
+    <li>欢迎您{{name}}女士</li>
+  <ol>
+      <li>
+      这是最新款的宝宝
+  </li>
+  <li>
+      这是最新款的口红
+  </li>
+  <li>
+没想到，你竟然是{{skill}}
+</li>
+</ol>
+
+{{else =='男'}}
+<li>欢迎您{{name}}先生</li>
+<ol>
+    <li>
+    这是最新款的游戏
+</li>
+<li>
+    好讨厌 才来找人家
+</li>
+<li>
+没想到，你竟然擅长{{skill}}
+</li>
+</ol>
+{{/if}}
+</ul>
+</script>
+<script>
+    var person1 = {
+        male: '女',
+        name: '旱情',
+        skill: '打王者'
+    }
+    var person2 = {
+        male: '男',
+        name: '雨神',
+        skill: '打旱情'
+    }
+    console.log(template('ifTemplate', person1));
+    console.log(template('ifTemplate', person2));
+
+
+</script>
+<!-- 原文输出 -->
+<script type="text/html" id="norTemplate">
+<ul>
+  
+    <li>{{name}}</li>
+    <li>{{skill}}</li>
+    <li>{{@info}}</li>
+</ul>
+
+</script>
+<script>
+    var person3 = {
+        name: '奥特曼',
+        skill: '打怪兽',
+        info: '  <a href="">毛爱吃鱼 够爱吃肉 奥特曼挨打小怪兽</a>'
+    }
+    document.querySelector('body').innerHTML = template('norTemplate', person3);
+</script>
+<!-- 循环语句 -->
+<script id="eachTemplate" type="text/html">
+<ul>
+    <li>{{name}}</li>
+    <li>兄弟们</li>
+    <ol>
+        {{each brother}}
+<li>{{$value}}</li>
+    {{/each}}
+    <li>家人們</li>
+    <ol>
+        {{each family}}
+     <li>{{$value.name}}---{{$value.skill}}</li>
+        {{/each}}
+    </ol>
+    </ol>
+</ul>
+</script>
+<script>
+    var person4 = {
+        name: '大娃',
+        brother: [
+            '二娃',
+            '三娃',
+            '四娃',
+            '五娃',
+            '六娃',
+            '日娃'
+        ],
+        family: [
+            { name: 'yey', skill: '被抓' },
+            { name: '穿山甲', skill: '到底说了什么' },
+            { name: '小蝴蝶', skill: '勾引葫芦娃' }
+        ]
+
+    }
+    console.log(template('eachTemplate', person4));
+</script>

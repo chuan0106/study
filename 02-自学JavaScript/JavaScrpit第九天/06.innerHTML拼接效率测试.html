@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+
+    <script>
+        function fn() {
+            var dl = +new Date();
+            console.log(dl);
+            var str = '';
+            for (var i = 0; i < 1000; i++) {
+                document.body.innerHTML += '<div style="width:100px;height:2px;border:1px;"></div>'
+            }
+            var d2 = +new Date();
+            console.log(d2 - dl);
+
+        }
+        fn()
+    </script>
+</body>
+
+</html>

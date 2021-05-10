@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var time = prompt('请你输入一个0~59之间的一个数字')
+        // 三元表达式 表达式？ 表达式1 ：表达式2
+        var result = time < 10 ? '00' + time : time;// 吧返回值 赋值一个新的变量
+        alert(result);
+    </script>
+</head>
+
+<body>
+    用户输入0~59之间的一个数字<br>
+    如果数字小鱼10 则在这个数字前面补0（加0 拼接） 否则 不做操作 用一个变量接收这个返回值 输出
+</body>
+
+</html>

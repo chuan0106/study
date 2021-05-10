@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 1px;
+        height: 1px;
+        background-color: pink;
+    }
+</style>
+
+<body>
+
+    <script>
+        function fn() {
+            var dl = +new Date();
+            var array = [];
+            for (var i = 0; i < 1000; i++) {
+                array.push('<div style="width:100px;height:2px;border:1px;"></div>');
+
+            }
+            document.body.innerHTML = array.join('');  // join转换为数组
+            var d2 = +new Date();
+            console.log(d2 - dl);
+
+        }
+        fn()
+    </script>
+</body>
+
+</html>

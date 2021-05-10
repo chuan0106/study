@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function panduan() {
+            var year = prompt('请您输入年份');
+            if (runnian(year)) {
+                alert('闰年 29天');
+            } else {
+                alert('平年 28天')
+            }
+        }
+        panduan();
+        function runnian(year) {
+            var flag = false;
+            if (year % 4 == 0 && year % 100 !== 0 || year % 400 == 0) {
+                flag = true;
+            }
+            return flag;
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

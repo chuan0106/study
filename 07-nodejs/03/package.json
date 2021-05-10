@@ -1,0 +1,11 @@
+{
+  "name": "03",
+  "version": "0.0.1",
+  "description": "测试项目",
+  "main": "0.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "0106",
+  "license": "ISC"
+}

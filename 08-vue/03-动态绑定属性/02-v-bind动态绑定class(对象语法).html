@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+<style>
+  .active {
+    color: pink;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <!-- <h2 class="active"> {{ message }}</h2>
+    <h2 :class="active"> {{ message }}</h2> -->
+
+    <!-- <h2 :class="{key1:value1,key2:value2}"> {{ message }}</h2> -->
+    <!-- <h2 :class="{类名1:true,类名2:Boolean}"> {{ message }}</h2> -->
+    <h2 class="tltle" :class="{active:lsActive,line:lsLine}"> {{ message }}</h2>
+    <h2 class="tltle" :class="getClasses()"> {{ message }}</h2>
+    <button v-on:click="btnClick"> 点击</button>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        // active: 'active'
+        lsActive: true,
+        lsLine: true
+      },
+      methods: {
+        btnClick: function () {
+          this.lsActive = !this.lsActive
+        },
+        getClasses: function () {
+          return { active: this.lsActive, line: this.lsLine }
+        }
+      }
+
+    })
+  </script>
+</body>
+
+</html>

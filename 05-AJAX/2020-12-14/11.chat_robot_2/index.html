@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+<script src="./JQuery.min.js"></script>
+
+<body>
+    <h2>第二版在线机器人</h2>
+    <div class="container">
+        <div class="message">
+            <div class="robot">
+                <a href="#" class="f_r"></a>
+                <p class="f_r">雯宝宝</p>
+            </div>
+            <!-- 已经存在并且隐藏的自己的聊天框 -->
+            <div id="hidden_self" class="self" style="display:none;">
+                <a href="#" class="f_r"></a>
+                <p class="f_r">123</p>
+            </div>
+        </div>
+        <div class="control">
+            <input type="text" name="" id="" class="inputBox">
+            <button class="sentBtn">发送</button>
+        </div>
+    </div>
+
+
+    <script>
+        $(function () {
+            $('.sentBtn').click(function () {
+                // 创建自己的聊天框
+                // 每次都克隆初始的第一个
+                var $cloneSelf = $('.self').first().clone();
+                // 添加到容器中
+                $('.message').append($cloneSelf);
+                $cloneSelf.show();
+                // 获取输入框的内容，设置给克隆的 元素内部的p标签
+                $cloneSelf.find('p').html($('.inputBox').val());
+
+                // ajax请求部分
+                var xhr = new XMLHttpRequest();
+                xhr.open('post', './chat.php');
+                // 随机返回消息，不需要对输入的信息进行获取，所以post的请求头可以不加数据
+                xhr.onload = function () {
+                    var $cloneRobot = $('.robot').first().clone();
+                    $('.message').append($cloneRobot);
+                    $cloneRobot.find('p').html(xhr.responseText);
+                }
+                xhr.send()
+            });
+        });
+    </script>
+
+</body>
+
+
+</html>

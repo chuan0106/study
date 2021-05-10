@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ title }}
+    {{ message }}
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+  </div>
+  <!-- 
+  <script type="text/html" id="cpn">
+    <div>
+      <h2>我是标题1</h2>
+      <p>我淘你猴子</p>
+    </div>
+  </script> -->
+
+  <template id="cpn">
+    <div>
+      <h1> {{ title }}</h1>
+      <h2>我是标题1</h2>
+      <p>我淘你猴子</p>
+    </div>
+  </template>
+  <script>
+    // 注册一个全剧组件
+    Vue.component('cpn', {
+      template: '#cpn',
+      data() {
+        // 专属自己组件的的title  组件的原型指向的是 Vue
+        return {
+          title: '这是个标题'
+        }
+      }
+    })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊小帅哥',
+        title: '我是标题'
+      }
+    })
+  </script>
+</body>
+
+</html>

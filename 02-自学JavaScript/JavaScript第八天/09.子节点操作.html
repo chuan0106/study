@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 节点有点 -->
+    <div>
+        我是div
+    </div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <ol>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ol>
+
+    </div>
+    <script>
+        // 子节点 childnodes 所有的子元素 包含元素节点 文本节点等等
+        var ul = document.querySelector('ul');
+        console.log(ul.childNodes);
+
+        // 2 childen 获取所有的子元素节点
+        console.log(ul.children);
+
+
+
+    </script>
+</body>
+
+</html>

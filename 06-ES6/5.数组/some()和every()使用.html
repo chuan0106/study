@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    /** 
+ * 计算对象数组中每个电脑的扣件系统是否可用,大于16位操作系统表示可用,否则不可用
+*/
+    var computers = [
+      { name: "Apple", ram: 8 },
+      { name: "IBM", ram: 4 },
+      { name: "Acer", ram: 32 },
+    ];
+    var result = computers.every(function (computer) {
+      return computer.ram > 16
+    })
+    console.log(result)//false;
+    var some = computers.some(function (computer) {
+      return computer.ram > 16
+    })
+    console.log(some)//true;
+  </script>
+</body>
+
+</html>

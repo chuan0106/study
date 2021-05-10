@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+    <!-- 1 直接拼接 语法过于繁琐 -->
+    <h2>{{firsName}} {{lastName}}</h2>
+    <!-- 2 通过methods -->
+    <h2> {{getFullName()}} </h2>
+    <h2> {{getFullName()}} </h2>
+    <h2> {{getFullName()}} </h2>
+    <h2> {{getFullName()}} </h2>
+    <!-- 3 computed -->
+    <h3>{{FullName}}</h3>
+    <h3>{{FullName}}</h3>
+    <h3>{{FullName}}</h3>
+    <h3>{{FullName}}</h3>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        firsName: '雨神',
+        lastName: '少主'
+      },
+      methods: {
+        getFullName: function () {
+          console.log('getFullName');
+          return this.firsName + this.lastName
+        }
+      },
+      computed: {
+        FullName: function () {
+          console.log('FullName');
+          return this.firsName + this.lastName
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

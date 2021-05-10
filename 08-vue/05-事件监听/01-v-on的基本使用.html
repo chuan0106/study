@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+    <h2>{{counter}}</h2>
+    <!-- <button v-on:click="counter++">+</button> -->
+    <!-- <button v-on:click="counter--">-</button> -->
+
+    <!-- <button v-on:click="increment">+</button> -->
+    <!-- <button v-on:click="decrement">-</button> -->
+
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        counter: 0
+      },
+      methods: {
+        increment() {
+          return this.counter++
+        },
+        decrement() {
+          return this.counter--
+        }
+
+      },
+    })
+  </script>
+</body>
+
+</html>

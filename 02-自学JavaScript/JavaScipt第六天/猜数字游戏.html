@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        var random = getRandomIntInclusive(1, 50);
+
+        for (var i = 1; i < 10; i++) {
+            var num = prompt('请输入1~100之间的数字');
+            if (num > random) {
+                alert('您输大了')
+
+            } else if (num < random) {
+                alert('您输小了');
+            } else {
+                alert('您真厉害');
+                break;
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

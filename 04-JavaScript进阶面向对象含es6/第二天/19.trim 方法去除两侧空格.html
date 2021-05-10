@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text"> <button>点击</button>
+    <div></div>
+    <script>
+        // trim 方法 去除字符串两侧空格
+        var str = '  andy  ';
+        console.log(str);
+        var str1 = str.trim(); // trim() 去除左右的字符 并且返回新的字符串
+        console.log(str1);
+        var ipt = document.querySelector('input');
+        var div = document.querySelector('div');
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            var str = ipt.value.trim();
+            if (str == '') {
+                alert('您还没输出');
+            } else {
+                div.innerHTML = str;
+                console.log(str);
+                console.log(str.length);
+            }
+        })
+    </script>
+</body>
+
+</html>

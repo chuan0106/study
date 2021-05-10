@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1 Math对象随机数方法 random() 返回一个随机的小数   0 = < x <1
+        // 2 这个方法里面不跟参数
+        // 3 代码验证
+        console.log(Math.random());
+
+
+        // 4 我们想要得到两个之间的随机整数 并且包含这两个整数
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);//返回小于一个数的最大整数 即一个数向下取整后的值
+            max = Math.floor(max); //返回小于一个数的最大整数 即一个数向下取整后的值
+
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        } //含最大值，含最小值 
+        console.log(getRandomIntInclusive(1, 100));
+        // 5 随机点名
+        var arr = ['张三额', '张飞', '吕布', '笑豪'];
+        // console.log(arr[0]);
+        console.log(arr[getRandomIntInclusive(0, arr.length - 1)])
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

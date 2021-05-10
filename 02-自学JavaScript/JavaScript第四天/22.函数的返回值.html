@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 利用函数求数组 [5,299,101,67,77]
+        function getArrmax(arr) {   // 接收一个数组
+            var max = arr[0];
+            for (var i = 1; i <= arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i]
+                }
+            }
+            return max;
+        }
+
+        // getArrmax([5, 299, 101, 67, 77]);  // 实参是一个数组送过去
+        // 在我们实际开发里面 我们经常用一个变量来接收 函数的返回结果
+        var re = getArrmax([5, 299, 101, 67, 77]);
+        console.log(re);
+
+
+
+
+        function Sum(redd) {
+            var max = redd[0];
+            for (var i = 0; i <= redd.length; i++) {
+                if (redd[i] > max) {
+                    max = redd[i];
+                }
+            }
+            return max;
+        }
+        var re1 = Sum([33, 555, 65, 86, 1]);
+        console.log(re1);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

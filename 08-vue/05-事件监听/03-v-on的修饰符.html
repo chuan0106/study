@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+    <!-- 1 .stop修饰符的使用 -->
+    <div @click="divClick">
+      aaa
+      <button @click.stop="btnClick">点击</button>
+    </div>
+
+    <!-- 2 .prevent修饰符的使用 -->
+    <form action="http://www.baidu.com">
+      <input type="submit" value="百度" @click="subClick" @click.prevent>
+    </form>
+
+    <!-- 3 监听某个键盘的键的点击 -->
+    <input type="text" @keyup.enter="keyUp">
+
+    <!-- 4 .once修饰符的使用 -->
+    <button @click.once="btn2Click">按钮</button>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊'
+      },
+      methods: {
+        divClick() {
+          return console.log('divClick');
+        },
+        btnClick() {
+          return console.log('btnClick');
+        },
+        subClick() {
+          console.log('subClick');
+        },
+        keyUp() {
+          console.log('keyUp');
+        },
+        btn2Click() {
+          console.log('btn2Click');
+        },
+
+      },
+    })
+  </script>
+</body>
+
+</html>

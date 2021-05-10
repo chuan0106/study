@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/JQuery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <ul>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+    </ul>
+    <script>
+        // 1 获取四个div 
+        console.log($('div'));
+        // 2 给四个div设置背景颜色粉色  jQuery对象不能使用style
+        $('div').css('background', 'pink');
+        // 3 隐式迭代 就是把匹配的所有元素内部进行循环遍历 给每一个元素添加css这个方法
+        $('ul li').css('color', 'red')
+        $('ul li')[1].style.color = 'yellow';
+
+        // 隐式迭代(重要)
+        // 遍历内部DOM元素(维数组形式存储)的过程叫做隐式迭代
+        // 简单理解： 给匹配到的所有元素进行循环遍历 执行相应的方法 而不用我们在进行循环 简化我们的操作 方便我们调用
+    </script>
+</body>
+
+</html>

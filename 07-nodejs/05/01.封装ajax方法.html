@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // setTimeout
+    // redFile
+    // ajax
+    // 往往异步 api 都伴有一个回调函数
+
+    let get = (url, callback) => {
+
+        // 1 创建对象
+        var xhr = new XMLHttpRequest();
+        // 2 设置请求行(get请求数据写在url后面)
+        xhr.open('get', url);
+        // 3 设置请求头(get请求可以省略 post 不发送数据也可以省略)
+        //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // 3.5 注册回调函数
+        xhr.addEventListener('load', function (e) {
+            // 获取数据
+            callback(xhr.responseText)
+        });
+        // 4 请求主体发送(get请求为空 或者null post 请求数据写在这里 如果没有数据 直接为空 或者null)
+        xhr.send(null);
+    }
+    get('./01.json', data => {
+        console.log(data);
+    })
+</script>

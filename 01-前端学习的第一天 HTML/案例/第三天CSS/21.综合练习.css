@@ -1,0 +1,12 @@
+p{
+    line-height: 26px;
+    text-indent: 2em;
+}
+*{
+    font: normal 700 26px;
+}
+br{
+    font-weight: 400;
+}
+a {text-decoration: none;
+   

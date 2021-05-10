@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1使用for循环打印99乘法表
+        var heihei = '';
+        for (var i = 1; i <= 9; i++) {
+            for (var y = 1; y <= i; y++) {
+                heihei += y + 'x' + i + '=' + i * y + '\t';
+
+
+            }
+            heihei += '\n';
+        }
+        console.log(heihei);
+        // 2 接收用户输入用户名和密码 如用户名为'admin' 密码为'123456' 则提示用户登录成功！ 否则 让用户一直输入.
+        var num = prompt('请输入用户名');
+        while (num !== 'admin') {
+
+
+            num = prompt('请输入用户名');
+        }
+        var mima = prompt('请输入密码');
+        while (mima !== '123456') {
+
+            mima = prompt('请输入密码');
+        }
+        alert('有什么吩咐 主人');
+
+        // 3 求整数 1~100的累加值 但要求跳过所有各位3的数（用continume实现）
+        var num1 = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 10 == 3) {
+                continue
+
+            }
+            num1 += i;
+        }
+        console.log(num1);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

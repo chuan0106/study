@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="获取json格式的数据">
+</body>
+<script>
+    // 点击时候获取
+    document.querySelector('input').onclick = function () {
+
+        // 1 创建异步对象
+        var xhr = new XMLHttpRequest();
+        // 2 设置请求行(get请求数据写在url后面)
+        // xhr.open('post', './backJSON.php');
+        xhr.open('post', './data/stars.json');
+        // 3 设置请求头(get请求可以省略 post 不发送数据也可以省略)
+        //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // 3.5 注册回调函数
+        xhr.onreadystatechange = function () {
+            // 判断状态&请求是否成功并使用数据据
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // json 的载体是字符串 用xhr.responseText 获取即可
+                console.log(xhr.responseText);
+                // 转化为对应的对象(数组)
+                var arr = JSON.parse(xhr.responseText);
+                console.log(arr);
+                // 遍历打印
+                for (var i = 0; i < arr.length; i++) {
+                    var currentObj = arr[i];
+                    console.log('姓名:' + currentObj.name + '技能：' + currentObj.skill);
+                }
+            }
+        }
+        // 4 请求主体发送(get请求为空 或者null post 请求数据卸载这里 如果没有数据 直接为空 或者null)
+        xhr.send(null);
+    };
+</script>
+
+</html>

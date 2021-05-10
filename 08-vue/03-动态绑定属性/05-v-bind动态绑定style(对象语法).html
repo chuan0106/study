@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+<style>
+  span {
+    font-size: 15px;
+    color: pink;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <!-- <h2 :style="{key(属性名):value(属性值)}"> {{ message }}</h2> -->
+
+    <!-- 类名驼峰表示 或者 font-size -->
+    <!-- 50px 必须加上单引号 不然会当做变量解析 -->
+
+    <!-- <h2 :style="{fontSize:'50px'}"> {{ message }}</h2> -->
+
+    <!-- finalSize 当成变量解析 -->
+    <h2 :style="{fontSize:finalSize + 'px',backgroundColor:finalColor}"> {{ message }}</h2>
+    <!--如果过于复杂 可以放在一个methods或者computed中 -->
+    <h2 :style="getStyles()"> {{ message }}</h2>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        finalSize: 100,
+        finalColor: 'pink'
+      },
+      methods: {
+        getStyles: function () {
+          return { fontSize: this.finalSize + 'px', backgroundColor: this.finalColor }
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

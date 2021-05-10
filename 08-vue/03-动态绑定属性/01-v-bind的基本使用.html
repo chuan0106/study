@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+<style>
+  img {
+    width: 200px;
+    height: 300px;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <!-- 错误的做法: 这里不可以使用 mustache 语法 -->
+    <!-- <img src="../images/羽神1.jpg" alt=""> -->
+    <!-- <img src="{{imgURL}}" alt=""> -->
+
+    <!-- 正确的做法: 使用 v-bind指令 -->
+    <img v-bind:src="imgURL" alt="">
+    <a v-bind:href="aHref">百度图片</a>
+
+    <!-- 语法糖的写法 -->
+    <img :src="imgURL" alt="">
+    <a :href="aHref"></a>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        imgURL: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3881604911,1375604789&fm=15&gp=0.jpg',
+        aHref: 'https://image.baidu.com/'
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/JQuery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+    </ul>
+    <ol>
+        <li>多个筛选几个</li>
+        <li>多个筛选几个</li>
+        <li>多个筛选几个</li>
+        <li>多个筛选几个</li>
+        <li>多个筛选几个</li>
+        <li>多个筛选几个</li>
+        <li>多个筛选几个</li>
+        <li>多个筛选几个</li>
+    </ol>
+    <script>
+        $(function () {
+            $('ul li:first').css('color', 'pink'); // 第一个li元素
+            $('ul li:last').css('color', 'red'); // 最后一个li元素
+            $('ul li:eq(2)').css('color', 'blue'); // 索引2的元素\
+            $('ol li:odd').css('color', 'skyblue'); // 奇数 数组从0开始
+            $('ol li:even').css('color', 'pink'); // 偶数  数组从0开始
+        }) 
+    </script>
+</body>
+
+</html>

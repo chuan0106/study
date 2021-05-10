@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="times"></div>
+    <script type="text/javascript">
+        var times = document.getElementById("times")
+
+        t = setInterval(function () {
+            //获取时间对象
+            var dd = new Date;
+            //获取年月日，时分秒
+            var y = dd.getFullYear();
+            var m = dd.getMonth() + 1;
+            var d = dd.getDate();
+            var h = dd.getHours();
+            var i = dd.getMinutes();
+            var s = dd.getSeconds();
+            var wkday = dd.getDay();
+            times.innerHTML = y + "年" + m + "月" + d + "日" + "   " + h + ":" + i + ":" + s + " " + "星期" + "日一二三四五六".charAt(wkday);
+        }, 1000)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 唱歌用的键盘操作事件
+        // 1 keyup 案件被弹起式出发
+        // document.onkeyup = function () {
+
+        //     console.log('你雄起了');
+        // }
+        document.addEventListener('keyup', function () {
+            console.log('弹起');
+
+        })
+        // 2 keydown 案件按下的时候出发 
+
+        document.addEventListener('keydown', function () {
+            console.log('我按下时');
+
+        })
+        // 3 keypress 案件按下的时候出发  案件按下的时候出发 不能识别功能键 比如ctr1 shift 左右箭头等
+        document.addEventListener('keypress', function () {
+            console.log('我按下时');
+
+        })
+        // 4三个事件得我执行顺序 keydown  keypress  keyup
+    </script>
+</body>
+
+</html>

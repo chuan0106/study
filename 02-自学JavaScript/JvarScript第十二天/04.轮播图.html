@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .focus {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            overflow: hidden;
+        }
+
+        .focus ul {
+            width: 400%;
+        }
+
+        .focus ul li {
+            float: left;
+        }
+
+        .arrow-l.arrow-r {
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+            width: 24px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <div class="main">
+            <div class="focus f1">
+                <a href="#" class="arrow-l">
+                    左边
+                </a>
+                <a href="#" class="arrow-r">
+                    右边
+                </a>
+                <ul>
+                    <li>
+                        <a href=""> <img src="img/1.png" alt=""> </a>
+                    </li>
+                    <li>
+                        <a href=""> <img src="img/2.png" alt=""> </a>
+                    </li>
+                    <li>
+                        <a href=""> <img src="img/3.png" alt=""> </a>
+                    </li>
+
+                </ul>
+                <ol class="circle">
+                    <li></li>
+                    <li class="current"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+
+</html>

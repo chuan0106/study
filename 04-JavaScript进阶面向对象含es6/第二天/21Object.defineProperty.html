@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.defineProperty() 定义属性或修改原有的属性
+        var obj = {
+            id: 1,
+            pname: '小米',
+            price: 1999,
+
+        };
+        // 1 以前的对象添加和修改属性的方式
+        // obj.num = 1000;
+        // obj.price = '1888';
+        // console.log(obj);
+        // 2 Object.defineProperty() 定义新属性或修改原有的属性
+        Object.defineProperty(obj, 'num', {
+            value: 1000,
+            enumerable: true  // 默认的值是false 所以我们要手动为true
+        });
+        Object.defineProperty(obj, 'price', {
+            value: 9.9
+        });
+        Object.defineProperty(obj, 'id', {
+            writable: false  // 如果为false 不允许修改这个属性值 默认值页为false
+        });
+        obj.id = 2;
+        console.log(obj);
+        Object.defineProperty(obj, 'address', {
+            value: '中国山东赵兰香',
+            // 如果只为false 不允许修改这个属性值 默认的值是false
+            writable: false,
+            // enumerable 如果为false 测不允许遍历 默认的值是 false
+            enumerable: false,
+            //  configurable 如果为false 则不允许删除这个属性 不允许在修改第三个参数里面的特性 默认为false
+            configurable: false
+
+        });
+        console.log(obj);
+        console.log(Object.keys(obj));
+        delete obj.pname; // delete 删除对象
+        console.log(obj);
+        delete obj.address;
+        console.log(obj);
+        // Object.defineProperty() 定义新属性或修改原有的属性
+        // Object.defineProperty(obj, prop, descriptor)
+        // Object.defineProperty() 第三个参数 descriptor 说明 ： 以对象形式{ } 书写
+        // value: 设置属性的 值 默认为undefined
+        // writable 值是否可以重写 true|false 默认为false 
+        // enumerable: 目标属性是否可以被枚举 true|false 默认为false 
+        // configurable:目标属性是否可以被删除 或是否可以再次修改特性 rue|false 默认为false 
+        Object.defineProperty(obj, 'address', {
+            value: '中国山东赵兰香',
+            // 如果只为false 不允许修改这个属性值 默认的值是false
+            writable: true,
+            // enumerable 如果为false 测不允许遍历 默认的值是 false
+            enumerable: true,
+            //  configurable 如果为false 则不允许删除这个属性 默认为false
+            configurable: true
+
+        });
+    </script>
+</body>
+
+</html>

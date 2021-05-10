@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/JQuery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>哈哈哈 </div>
+
+    <script>
+        // 操作样式之css方法
+        $(function () {
+            // console.log($('div').css('width'));
+            // $('div').css('width', '300px');
+            // $('div').css('width', 300);
+            // $('div').css(width, '300px'); // 属性名一定要加引号
+            $('div').css({
+                width: 300,
+                height: 300,
+                backgroundColor: 'yellow'
+                // 如果是符合属性则必须采取驼峰命名法 如果值不是字 需要加引号
+            })
+        })
+    </script>
+</body>
+
+</html>

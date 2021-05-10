@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>post提交数据</h2>
+    <!-- 
+        post 提交数据
+        action 属性 提交的url
+        必须设置 method 默认是get 
+        表单元素name 属性
+        提交按钮
+        1 提交的数据 不在url 中 
+        安全性好一点
+        2 而 post 提交数据 没有长度限制 
+        浏览器端 只要你想 随意添加
+        服务器可以选择 是否直接受这么多数据
+        3 如果要上传文件 必须使用post 
+        
+     -->
+
+    <form action="03.postData.php" method="POST">
+        <input type="text" name="food" id="" placeholder="您喜欢吃的食物">
+        <input type="text" name="doType" id="" placeholder="这种食物的做法">
+        <input type="submit">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+    <ul>
+      <li v-for="item in letters" :key="item.id">
+        {{ item }}
+      </li>
+    </ul>
+    <button @click="btnClick">按钮</button>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊小帅哥',
+        letters: ['a', 'b', 'c', 'd']
+      },
+      methods: {
+        btnClick() {
+          // 1 push()方法
+          // this.letters.push('abc')   // 最后面添加
+          // this.letters.push('aaa', 'bbb', 'ccc')
+
+          // 2 pop()方法
+          // this.letters.pop()    // 删除数组中的最后面一个元素
+
+          // 3 shift()
+          // this.letters.shift()   // 删除数组中的最前面一个元素
+
+          // 4 unshift()
+          // this.letters.unshift('雨神', '少主', '关羽')   // 数组最前面添加元素
+
+          // 5 splice()    作用:  删除元素 插入元素 替换元素
+          // splice(start)
+          // 删除元素:第二个参数传入你要删除几个元素(如果没有传 就删除后面所有的元素)
+          // this.letters.splice(2, 1)
+          // 替换元素:第二个参数 表示我们要替换及格元素 后面是用于替换前面的元素
+          // this.letters.splice(2, 2, '雨神', '关羽')
+          // 插入元素:第二个参数 传入0 并且后面要跟上要插入的元素
+          // this.letters.splice(1, 0, '雨神', '少主', '关羽')
+
+          // 数组排序
+          // this.letters.sort()
+
+          // 数组翻转
+          // this.letters.reverse()
+
+          // 注意: 通过索引值修改数组中的元素
+          // this.letters[0] = 'bbb'   // 不是响应式
+          // this.letters.splice(0, '1', 'bbb')
+
+          // Vue内部自带
+          Vue.set(this.letters, 0, '我雨神天下第一')
+        }
+      },
+    })
+
+    let points = [40, 100, 1, 5, 25, 10];
+    points.sort(function (a, b) { return a - b });
+    console.log(points);
+
+    // let sum = (num1, num2) => {
+    //   return num1 + num2
+    // }
+    // sum(1, 3)
+
+
+    // let sum = (num1, num2, num3) => {
+    //   return num1 + num2 + num3
+    // }
+    // console.log(sum(1, 3, 4));
+
+    let sum = (...num) => {
+      return num
+    }
+    sum(1, 6, 9, 7, 56)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1问
+         console.log(num);
+        // 2问
+
+
+
+        console.log(num); // undefined 坑1
+        var num = 10;
+         //相当于执行了以下代码
+         var num;
+         console.log(num);
+         num = 10;
+
+
+
+
+
+
+
+
+        // 3 问
+        fn();
+        function fn() {
+            console.log(11);
+
+        }
+
+
+
+
+
+
+
+        //   4问
+        //  fun(22); 报错 坑2
+        // var fun = function () {
+        //     console.log(22);
+
+        // }
+
+
+        // // 相当于执行了以下代码
+        // var fun;
+        // fun();
+        // fun = function () {
+        //     console.log(22);
+
+        // }
+
+
+
+// 1 我们js引擎运行js分为两步 ：与解析 代码执行
+// 2 与解析 js引擎会把js里面所有的var 还有 function 提升到单签作用域的的最前面
+// 3 代码执行 按照代码胡写的顺序从上往下执行
+// 4 与解析分为 变量与解析(变量提升)和函数与解析(函数提升)
+// 5 变量提升 就是把所有的变量声明提升到当前的作用域前面 不提升赋值操作
+// 6 函数提升 就是把所有的函数声明提升到当前作用域的最前面 不调用函数
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

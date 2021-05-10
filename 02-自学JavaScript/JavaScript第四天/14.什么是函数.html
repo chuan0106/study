@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 3 函数 就是封装了一段代码被重复调用的代码块  目的 就是让大量代码重复使用调用
+
+        function getSum(num1, num2) {
+            var sum = 0;
+            for (var i = num1; i <= num2; i++) {
+                sum += i;
+            }
+            console.log(sum);
+
+        }
+        getSum(1, 100);
+        getSum(10, 50);
+        getSum(1, 1000);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

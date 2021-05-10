@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="../js/vue.js"></script>
+
+<body>
+  <div class="app">
+    <div ref="msgDiv">{{msg}}</div>
+    <div v-if="msg1">Message got outside $nextTick: {{msg1}}</div>
+    <div v-if="msg2">Message got inside $nextTick: {{msg2}}</div>
+    <div v-if="msg3">Message got outside $nextTick: {{msg3}}</div>
+    <button @click="changeMsg">
+      Change the Message
+    </button>
+    <div>
+      <div>{{up}}</div>
+      <button type="primary" @click="nextTick">this.nextTick 当前数据更新后执行函数</button>
+
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: '.app',
+      data: {
+        msg: 'Hello Vue.',
+        msg1: '',
+        msg2: '',
+        msg3: '',
+        up: '我是未更新的数据',
+      },
+      methods: {
+        nextTick() {
+          this.up = '我被更新了'
+          this.$nextTick(() => {
+            console.log('我是nextTick，我被执行了')
+          })
+        },
+        changeMsg() {
+          this.msg = "Hello world."
+          this.msg1 = this.$refs.msgDiv.innerHTML
+          this.$nextTick(() => {
+            this.msg2 = this.$refs.msgDiv.innerHTML
+          })
+          this.msg3 = this.$refs.msgDiv.innerHTML
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

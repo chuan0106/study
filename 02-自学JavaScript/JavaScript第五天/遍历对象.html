@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Style(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.cook = function (jn) {
+                console.log(jn);
+            }
+        }
+        var zly = new Style('找老杨', '十八岁', '男');
+        console.log(zly);
+        zly.cook();
+
+    </script>
+</body>
+
+</html>

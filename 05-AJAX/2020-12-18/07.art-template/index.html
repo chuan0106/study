@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>模板引擎的使用</h2>
+</body>
+
+</html>
+<script src="./template-web.js"></script>
+
+<!-- // 定义模板
+type 不写 或者是 text/JavaScript 会被解析为js  
+如果写成 其他的内容 不会被当做js解析
+-->
+<script type="text/html" id="template">
+<ul>
+    <li>名字{{name}}</li>
+    <li>技能{{skill}}</li>
+    <li>爱好{{ah}}</li>
+</ul>
+</script>
+
+<script>
+    var data = {
+        name: '雨神',
+        skill: '打王者',
+        ah: '睡觉'
+    };
+    // 填坑
+    // 参数1 模板的id
+    // 参数2 填充的数据
+    var result = template('template', data);
+    console.log(result);
+    document.querySelector('body').innerHTML = result;
+</script>
+<!-- 
+1 定义模板
+2 挖坑 取名字
+3 填坑
+
+ -->

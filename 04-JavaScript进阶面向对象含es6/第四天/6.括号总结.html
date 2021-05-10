@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var rg = /[abc]/; // 中括号 字符集合 匹配方括号中的任意字符 只要包含有a 或者 b 或者c  都返回true 
+        console.log(rg.test('andy'));
+        console.log(rg.test('bed'));
+
+        var reg = /^a{3,}$/; // 大括号 重复三次或多次
+        console.log(reg.test(''));
+        console.log(reg.test('a'));
+        console.log(reg.test('aaa'));  // true
+        console.log(reg.test('aaaaaa'));// true
+
+        // 小括号 表示优先级
+        var reg = /^(abc){3}$/;  //  他是让abcc重复三次
+        console.log(reg.test('a'));
+        console.log(reg.test('abcabcabc'));  // true
+        console.log(reg.test('acccaaa'));// true
+
+    </script>
+</body>
+
+</html>

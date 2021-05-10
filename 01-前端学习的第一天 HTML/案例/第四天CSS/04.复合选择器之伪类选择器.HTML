@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* link 未访问过的链接 把没有点击过的 （访问过的）链接选出来 */
+        div a :link {
+            color: red;
+        }
+
+        /* a：visited访问过的链接 */
+
+        div a:visited {
+            color: pink;
+        }
+
+        /* a：hover 选择鼠标经过的那个链接 */
+        div a:hover {
+            color: yellow;
+        }
+
+        /* a：active 选择的是我们鼠标正在按下的链接 */
+        div a:active {
+            color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <div><a href="#">百度</a></div>
+    <div><a href="#">未知链接</a></div>
+
+</body>
+
+</html>

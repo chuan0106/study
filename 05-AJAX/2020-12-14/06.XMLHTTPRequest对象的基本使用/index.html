@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="发送请求提交">
+</body>
+
+<script>
+    // 绑定点击事件
+    var btn = document.querySelector('input');
+    btn.onclick = function () {
+        // 创建  对象 异步对象
+        var xhr = new XMLHttpRequest();
+        // 请求行
+        // get请求 数据是拼接在URl 中的
+        // xxx.php?key=value&key2=value2
+        xhr.open('get', 'xxx.php?name=jack&skill=painting');
+        xhr.onload = function () {
+
+            console.log('你来了');
+            console.log(xhr.responseText);
+            alert(xhr.responseText); // 响应文本
+        }
+        // 请求头 setRequestHeader
+        // 参数1 键名
+        // 参数2 值
+        // 目前这个好像没有任何作用  是否可以省略呢
+        // get 请求 可以省略 设置请求头的操作
+        // xhr.setRequestHeader('hm', 'good good good day day day');
+
+        // 请求主体 发送
+        xhr.send(null);
+    }
+</script>
+
+</html>

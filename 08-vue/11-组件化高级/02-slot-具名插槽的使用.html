@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+
+  <!-- 1.插槽的基本使用    <slot></slot> -->
+  <!-- 2.插槽的默认值<slot>button</slot> -->
+  <!-- 3.如果有多个值,同时放入组件进行替换式,一起作为替换元素 -->
+
+  <div id="app">
+    {{ message }}
+    <cpn>
+      <span slot="center">标题</span>
+      <button slot="left">返回</button>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <slot name="left"><span>我是左边的</span></slot>
+      <slot name="center"><span>我是中间的</span></slot>
+      <slot name="right"><span>我是右边的</span></slot>
+    </div>
+  </template>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊小帅哥'
+      },
+      components: {
+        cpn: {
+          template: '#cpn'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

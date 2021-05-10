@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#" method="post" name="myForm">
+      兴趣爱好：<br />
+      <input type="checkbox" name="hobby" value="1" />篮球
+      <input type="checkbox" name="hobby" value="2" />足球
+      <input type="checkbox" name="hobby" value="3" />乒乓球
+      <input type="checkbox" name="hobby" value="4" />羽毛球
+      <input type="checkbox" name="hobby" value="5" />橄榄球
+      <input type="checkbox" name="hobby" value="6" />桌球<br />
+      <input type="button" value="全选" onclick="selectAll()" />
+      <input type="button" value="反选" onclick="selectInverse()" />
+      <input type="button" value="取消" onclick="selectDel()" />
+    </form>
+  </body>
+  <script>
+    function selectAll() {
+      var hobbys = document.myForm.hobby;
+      for (var i in hobbys) {
+        if (!hobbys[i].checked) {
+          hobbys[i].checked = true;
+        }
+      }
+    }
+    function selectInverse() {
+      var hobbys = document.myForm.hobby;
+      for (var i in hobbys) {
+        hobbys[i].checked = !hobbys[i].checked;
+      }
+    }
+    function selectDel() {
+      var hobbys = document.myForm.hobby;
+      for (var i in hobbys) {
+        if (hobbys[i].checked) {
+          hobbys[i].checked = false;
+        }
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 字符串开头(startsWith);
+        let str = 'git://gitee.com/';
+
+        if (str.startsWith('http://')) {
+            alert('普通网址')
+        } else if (str.startsWith('https://')) {
+            alert('加密网址')
+        } else if (str.startsWith('git://')) {
+            alert('git地址')
+        } else {
+            alert('其他')
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+// 1.commonjs模块化规范
+const mathUtils = require('./mathUtils')
+console.log(mathUtils.add(10, 28));
+
+
+// 2.es6模块化规范
+import { name, age, height } from "./info.js";
+console.log(name);
+console.log(age);
+console.log(height);

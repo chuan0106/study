@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 0;
+            height: 0;
+            /* border: 10px solid pink; */
+            margin: 0 auto;
+            border-top: 20px solid pink;
+            border-right: 20px solid red;
+            border-bottom: 20px solid blue;
+            border-left: 20px solid green;
+        }
+
+        .box2 {
+            width: 0;
+            height: 0;
+            border: 30px solid transparent;
+            border-right: 30px solid pink;
+        }
+
+        .jd {
+            position: relative;
+            width: 120px;
+            height: 250px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+
+        .box3 {
+            position: absolute;
+            right: 5px;
+            top: -40px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            /* 为了照顾兼容性 */
+            border: 20px solid transparent;
+            border-bottom: 20px solid pink;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="jd">
+        <span class="box3"></span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .slide-bar {
+
+            width: 45px;
+            height: 130px;
+            margin-left: 600px;
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            background-color: pink;
+        }
+
+        .header {
+            width: 1200px;
+            height: 150px;
+            background-color: purple;
+            margin: 10px auto;
+        }
+
+        .banner {
+            width: 1200px;
+            height: 250px;
+            background-color: skyblue;
+            margin: 10px auto;
+        }
+
+        .main {
+            width: 1200px;
+            height: 1000px;
+            background-color: yellowgreen;
+            margin: 10px auto;
+        }
+
+        span {
+            position: absolute;
+            bottom: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header">头部区域</div>
+    <div class="banner">banner区域</div>
+    <div class="main">主体区域</div>
+    <script>
+        var sld = document.querySelector('.slide-bar');
+        var gbk = document.querySelector('.goBack');
+        var bnr = document.querySelector('.banner');
+        var bnrTop = bnr.offsetTop;
+        sldTop = sld.offsetTop - bnrTop;
+        var main = document.querySelector('.main');
+        console.log(sldTop);
+        document.addEventListener('scroll', function () {
+            if (window.pageYOffset >= bnrTop) {
+                sld.style.position = 'fixed';
+                sld.style.top = bnrTop + 'px';
+            } else {
+                sld.style.position = 'absolute';
+                sld.style.top = 300 + "px";
+            }
+            if (window.pageYOffset >= main.offsetTop) {
+                gbk.style.display = "block"
+            } else {
+                gbk.style.display = "none";
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1 利用new Object()创建对象
+        var onj = new Object();
+        // 2 利用 字面量创建对象
+        var obj2 = {};
+        // 3 利用构造函数创建对象
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = 18;
+            this.sing = function () {
+                console.log('我会唱歌');
+            }
+        }
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 19);
+        console.log(ldh);
+        console.log(zxy);
+        ldh.sing();
+        zxy.sing();
+
+        // new 在执行时会做四件事情
+        // 在内润中创建一个新的空对象
+        // 让this 指向这个新的对象
+        // 执行构造函数里面的代码 给这个新对象添加属性和方法
+        // 返回这个新对象( 所以构造函数里面不需要retum )
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <span></span>
+        <p></p>
+    </div>
+    <script>
+        let title = '标题';
+        let content = '内容';
+        let str = '<div>\
+        <span>'+ title + '</span>\
+        <p>'+ content + '</p>\
+    </div>'
+        console.log(str);
+        let str2 = `  <div>
+        <span>${title}</span>
+        <p>${content}</p>
+    </div>`
+        console.log(str2);
+    </script>
+
+</body>
+
+</html>

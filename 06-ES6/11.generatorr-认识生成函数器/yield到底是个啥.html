@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* 炒菜(刚从菜市场买回来的菜) {
+            let 干净的菜 = yield 洗完的菜;
+            干净的菜 > 切 > 丝;
+            let 切好的菜 = yield 丝;
+            切好的菜 > 炒 > 熟的菜;
+            return 熟的菜;
+        }
+    </script>
+</body>
+
+</html>

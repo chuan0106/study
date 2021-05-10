@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes move {
+        from {}
+
+        to {
+            transform: translate(1000px);
+        }
+    }
+
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        /* 动画简写属性  animation： 动画名称 合适开始 播放次数 是否反方向 动画其实或者结束的状态 */
+        animation: move 1s linear 0s 1 alternate forwards;
+        /* 连两个属性一定要写 */
+    }
+</style>
+
+<body>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function User(name, pass) {
+            this.name = name;
+            this.pass = pass;
+        }
+        User.prototype.showName = function () {
+            alert(this.name);
+        }
+        User.prototype.showPass = function () {
+            console.log(this.pass);
+        }
+
+        function Vip(name, pass, level) {
+            User.call(this, name, pass)
+            this.level = level;
+        }
+        Vip.prototype = new User();
+        Vip.prototype.constructor = Vip;
+        Vip.prototype.showLevel = function () {
+            alert(this.level);
+        }
+        var ldh = new Vip('刘德华', '123', 18);
+        ldh.showName();
+        ldh.showPass();
+        ldh.showLevel();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>樱花</title>
+    <link rel="stylesheet" href="/SCC/首页.css">
+    <link rel="shortcut icon" href="/樱花.ico" />
+    <script src="/JS/flexible.js"></script>
+</head>
+
+<body>
+
+    <a href="http://baidu.com" target="_blank"> <img src="/images/timg1.gif" alt=""></a>
+    <span class="bgt"></span>
+    <div class="timer"></div>
+
+
+    <div class="date">
+        <span class="wh"></span>
+    </div>
+
+
+
+    <script>
+        var wh = document.querySelector('.wh');
+        var date = new Date();
+        var h = date.getHours();
+        if (h < 12) {
+            wh.innerHTML = ' 亲 上午好';
+        } else if (h < 18) {
+            wh.innerHTML = ' 亲 下午好';
+        } else {
+            wh.innerHTML = ' 亲 晚上好';
+        }
+    </script>
+    <script>
+        var time = document.querySelector('.timer');
+        countDown();
+        setInterval(countDown, 1000);
+        function countDown() {
+            var date = new Date();
+            var year = date.getFullYear();    // 年
+            var moth = date.getMonth() + 1;   //  月
+            var dates = date.getDate();    // 日
+            var houre = date.getHours();   //  时
+            var inuts = date.getMinutes();  //  分
+            var seconds = date.getSeconds();  //  秒
+            var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+            var day = date.getDay();  // 周
+            time.innerHTML = year + '年' + moth + '月' + dates + '日' + arr[day] + '</br>' + houre + '时' + inuts + '分' + seconds + '秒'
+        }
+    </script>
+
+    <div class="he1">
+        <div class="reg-form">
+            <ul>
+                <li><label for="">登录账号：</label><input type="text" value="川哥哥你真帅">
+                </li>
+
+                <li><label for="">登录密码：<img src="/images/xly.png" alt="" id="eye"> </label><input type="password"
+                        class="mim" value="chuan0106" id="mm">
+                </li>
+        </div>
+    </div>
+    <script>
+        var mm = document.getElementById('mm');
+        var eye = document.getElementById('eye')
+        var flag = 0;
+        eye.onclick = function () {
+            if (flag == 0) {
+                mm.type = 'text';
+                eye.src = '/images/sgy.png';
+                flag = 1;
+            } else {
+                mm.type = 'password';
+                eye.src = '/images/xly.png';
+                flag = 0;
+            }
+        }
+
+
+        var text = document.querySelector('input');
+        text.onfocus = function () {
+            if (this.value === '川哥哥你真帅') {
+                this.value = '';
+            }
+            // 获得焦点把文本框里面的文字变色
+            this.style.color = 'rgb(231, 108, 231)';
+        }
+
+        text.onblur = function () {
+            if (this.value === '') {
+                this.value = '川哥哥你真帅';
+            }
+            // 失去焦点吧文本框里面的文字变色
+            this.style.color = '#999';
+        }
+
+
+        var tex = document.querySelector('.mim');
+        tex.onfocus = function () {
+            if (this.value === 'chuan0106') {
+                this.value = '';
+            }
+            // 获得焦点把文本框里面的文字变色
+            this.style.color = 'rgb(231, 108, 231)';
+        }
+
+
+
+
+
+
+    </script>
+    <a href="/html/index.html">立即登录</a>
+
+
+    <div class="Sb"></div>
+    <script>
+        var sbt = document.querySelector('.Sb');
+        document.addEventListener('mousemove', function (e) {
+            var x = e.pageX;
+            var y = e.pageY;
+            sbt.style.left = x - 12 + 'px'
+            sbt.style.top = y - 10 + 'px'
+
+        })
+        document.addEventListener('click', function (e) {
+            sbt.style = 'none';
+        })
+
+    </script>
+
+
+</body>
+
+</html>

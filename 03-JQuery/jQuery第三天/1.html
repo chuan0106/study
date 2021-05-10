@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- 表单默认行为 -->
+  <form id="form_test" action="/myurl" method="post">
+    用户名：<input type="text" value="" id="username" />
+    密 码：<input type="text" value="" id="password" />
+    <button id="submit_btn">提交</button>
+  </form>
+  <form action="">
+    <input type="text">
+    <input type="text">
+    <button type="submit">点击</button>
+  </form>
+</body>
+<script>
+  var submit_btn = document.querySelector("#submit_btn")
+  var form_test = document.querySelector('#form_test')
+
+  // 解决回车 input 获取默认行为问题
+  form_test.onsubmit = e => {
+    e.preventDefault();
+    console.log('123');
+  }
+
+  submit_btn.onclick = e => {
+    e.preventDefault()
+    console.log('hh');
+  }
+
+
+
+</script>
+
+</html>

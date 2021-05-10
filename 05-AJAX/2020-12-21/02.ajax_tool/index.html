@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .cover {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: yellowgreen;
+        opacity: 0.5;
+        display: none;
+    }
+</style>
+
+<body>
+    <h2>jQuery_ajax 使用补充</h2>
+    <input class="json" type="button" value="获取json">
+    <input class="xml" type="button" value="获取xml">
+    <div class="cover"></div>
+</body>
+
+</html>
+<!-- 导入js -->
+<script src="../JQuery.min.js"></script>
+<!-- 
+遮罩层
+  开启 发送请求是
+  关闭 请求回来时
+
+ -->
+<script>
+    $(function () {
+        $('.json').click(function () {
+            console.log(111);
+            $.ajax({
+                // url: '../00.backData/backJSON.php',
+                url: '../00.backData/data/person.json',
+                success: function (data) {
+                    console.log(data);
+                },
+                // 认为的指定 返回的是json数据格式
+                dataType: 'json'
+            })
+        })
+        $('.xml').click(function () {
+            console.log(111);
+            $.ajax({
+                // url: '../00.backData/backJSON.php',
+                url: '../00.backData/data/person.xml',
+                success: function (data) {
+                    console.log(data);
+                },
+                // 认为的指定 返回的是json数据格式
+                dataType: 'xml'
+            })
+        })
+        // 请求开始开启遮罩层
+        $(document).ajaxStart(function () {
+            $('.cover').delay(1000).show(1000);
+        })
+        // 请求关闭开启遮罩层
+        $(document).ajaxStop(function () {
+            $('.cover').delay(1000).hide(1000);
+        })
+    }
+    )
+
+</script>

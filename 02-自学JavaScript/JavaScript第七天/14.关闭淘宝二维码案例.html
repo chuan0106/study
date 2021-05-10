@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            text-align: center;
+            display: block;
+            color: red;
+        }
+
+        .btn {
+            position: absolute;
+            top: -1px;
+            right: -15px;
+            width: 15px;
+            height: 15px;
+            border: 1px solid #cccccc;
+            line-height: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="/images/羽神2.jpg" alt="">
+        <i class="btn">X</i>
+    </div>
+    <script>
+        var btn = document.querySelector('i');
+        var div = document.querySelector('div');
+        btn.onclick = function () {
+            div.style.display = 'none';
+        }
+
+    </script>
+</body>
+
+</html>

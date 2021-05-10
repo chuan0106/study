@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .item {
+    width: 640px;
+    background-color: #eee;
+    margin-top: 50px;
+    border-radius: 5px;
+
+  }
+
+  .item .cover {
+    display: block;
+  }
+
+  .item .cover img {
+    display: block;
+  }
+
+  .item .bottom {
+    height: 35px;
+    position: relative;
+  }
+
+  .item .bottom a {
+    text-decoration: none;
+    line-height: 35px;
+    font-family: '微软雅黑';
+    margin-left: 20px;
+    color: gray;
+  }
+
+  .item .bottom .rightBox {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+  }
+
+  .item .bottom .rightBox span {
+    line-height: 35px;
+    margin: 0 20px;
+    font-size: 15px;
+    color: gray;
+  }
+
+  .item .bottom .rightBox span::before {
+    margin-right: 10px;
+    color: #dd5a64;
+  }
+
+
+  .item-control {
+    position: fixed;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #getMore {
+    width: 100px;
+    height: 100px;
+    border: none;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+  }
+
+  #getSome {
+    width: 100px;
+    height: 100px;
+    border: none;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <div class="left-control">
+    <h2>加载一张</h2>
+    <div id="getMore" class="icon-download icon-4"></div>
+    <h2>加载多张</h2>
+    <div id="getSome" class="icon-download icon-4"></div>
+  </div>
+  <div class="container">
+    <div class="item">
+      <a href="#" class="cover"><img src='../1608283738(1).jpg' alt=""></a>
+      <div class="bottom">
+        <a href="#">vo1.847 用一首歌来想想你</a>
+        <div class="rightBox">
+          <span class="icon-heart">18554</span>
+          <span class="icon-coment">184</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<!-- 使用jQuery -->
+<script src="../JQuery.min.js"></script>
+
+<!-- 步骤
+0 导入模板引擎    
+1 定义钵满
+2 挖坑 起名字 一般是取决于数据
+3 填坑
+数据 服务器 ajax
+回调函数
+4 使用
+
+-->
+<!-- 导入模板引擎 -->
+<script src="../template-web.js"></script>
+<!-- 定义模板引擎 -->
+<script type="text/html" id="template">
+    <div class="item">
+        <a href="#" class="cover"><img src={{path}} alt=""></a>
+        <div class="bottom">
+            <a href="#">{{name}}</a>
+            <div class="rightBox">
+                <span class="icon-heart">{{skill}}</span>
+                <span class="icon-coment">184</span>
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+  $(function () {
+    var data = {
+      path: '../images/羽神1.jpg',
+      name: '哈哈',
+      skill: '睡觉'
+    };
+    $('#getMore').click(function () {
+      console.log(111);
+      $.ajax({
+        url: '../data/data.json',
+        success: function (dat) {
+          console.log(dat);
+          var result = template('template', data);
+          console.log(result);
+          $('.container').append(result);
+        }
+      })
+    })
+    $('#getSome').click(function () {
+
+    })
+  })
+
+</script>

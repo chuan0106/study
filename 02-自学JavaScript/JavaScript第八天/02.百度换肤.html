@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background: url(/images/羽神1.jpg) no-repeat 0 -300px;
+      background-size: 100%;
+    }
+
+    div {
+      margin: 0 auto;
+      width: 820px;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+  <body>
+    <ul class="baidu">
+      <img src="/images/羽神1.jpg" alt="" />
+      <img src="/images/羽神2.jpg" alt="" />
+      <img src="/images/羽神3.jpg" alt="" />
+      <img src="/images/羽神4.jpg" alt="" />
+    </ul>
+    <script>
+      var tu = document.querySelector('.baidu').querySelectorAll('img');
+      for (var i = 0; i < tu.length; i++) {
+        tu[i].onclick = function () {
+          document.body.style.backgroundImage = 'url(' + this.src + ')';
+        };
+      }
+    </script>
+  </body>
+</html>

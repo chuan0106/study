@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../13.null/JQuery.min.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+        // let oDate = new Date();
+        // let arr = new Array();
+
+        // 异步代码
+        // resolve  成功了
+        // reject 失败了
+
+        // 1 创建对象
+
+        // 1 创建异步对象
+
+
+
+        let p = new Promise(function (resolve, reject) {
+
+            // 异步代码
+            // resolve  成功了
+            // reject 失败了
+
+            $.ajax({
+                url: './data/11.txt',
+                dataType: 'json',
+                success(arr) {
+                    console.log(arr);
+                    resolve(arr)
+                },
+                error(err) {
+                    reject(err)
+                }
+
+            })
+        })
+
+        let p2 = new Promise(function (resolve, reject) {
+
+            // 异步代码
+            // resolve  成功了
+            // reject 失败了
+
+            $.ajax({
+                url: './data/json.txt',
+                dataType: 'json',
+                success(arr) {
+                    resolve(arr)
+                },
+                error(err) {
+                    reject(err)
+                }
+
+            })
+        })
+
+        Promise.all([p, p2]).then(function (arr) {
+            // 结构赋值
+            let [res1, res2] = arr;
+            alert('全都成功了')
+            alert(res1);
+            alert(res2);
+            console.log(arr);
+        }, function () {
+            alert('至少有一个失败了')
+        })
+    </script>
+
+</body>
+
+</html>

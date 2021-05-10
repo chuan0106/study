@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }} <br>
+    <span v-if="isUser">
+      <!-- Vue底层为性能考虑 点击切换 value的值不会改变  因为用的还是同一个 label input  只不过是把里面的属性进行了修改  如若不需要留当前的value key的值不相同 则不对其进行复用-->
+      <label for="username"> 用户账号: <input id="username" type="text" value="用户账号" key="username"></label>
+    </span>
+    <span v-else><label for="email">用户邮箱: <input id="email" type="text" placeholder="请输入邮箱" key="email"></label></span>
+    <button @click="isUser=!isUser">切换类型</button>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        isUser: true
+      }
+    })
+  </script>
+</body>
+
+</html>

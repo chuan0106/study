@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1 CheckBox单选框 -->
+    <!-- {{ message }} <br>
+    <label for="agree">
+      <input type="checkbox" name="" id="agree" v-model="isAgree">同意协议
+    </label>
+    <h2>您选择的是: {{isAgree}}</h2>
+    <button :disabled="!isAgree">点击下一步</button> -->
+
+    <!-- 2 CheckBox多选框 -->
+    <input v-model="hobbies" value="关羽" type="checkbox" />关羽
+    <input v-model="hobbies" value="张飞" type="checkbox" />张飞
+    <input v-model="hobbies" value="少主" type="checkbox" />少主
+    <input v-model="hobbies" value="雨神" type="checkbox" />雨神
+    <h2>您的坐骑是: {{hobbies}}</h2>
+
+    <label v-for="item in originHobbies" :key="item.id" :for="item">
+      <input v-model="hobbies" :value="item" :id="item" type="checkbox" />{{item}}
+    </label>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊小帅哥',
+        isAgree: false,  // 单选框对应布尔值
+        hobbies: [],   // 多选框对应数组
+        originHobbies: ['关羽', '张飞', '少主', '雨神', '刘贝贝']
+      }
+    })
+    parseFloat
+  </script>
+</body>
+
+</html>

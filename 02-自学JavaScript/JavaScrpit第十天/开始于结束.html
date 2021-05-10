@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="ks">开始</button>
+    <button class="js">结束</button>
+    <script>
+        var ks = document.querySelector('.ks');
+        var js = document.querySelector('.js');
+        var tz = null;
+        ks.addEventListener('click', function () {
+            tz = setInterval(function () {
+                console.log('我套你猴子');
+
+            }, 1000)
+        })
+        js.addEventListener('click', function () {
+            clearTimeout(tz)
+        })
+    </script>
+</body>
+
+</html>

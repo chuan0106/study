@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/案例/我羽神.html" method="GET">
+        <!-- text 文本框 用户可以在里面输入任何文字 -->
+        用户名：<input type="text" name="随便写这个" maxlength="100"> <br>
+        密码：<input type="password" name="这个随便写" maxlength="1"><br>
+        <!-- maxlength这个是用户可以在表单元素输入的最大字符数，一般使用较少 -->
+
+        密码：<input type="button" value="1"><br>
+        密码：<input type="checkbox"><br>
+        <!-- password 密码框 用户看不见输入的密码 -->
+        <!-- oytton 定义可单机按钮（多数情况下，用于通过IPjavascriipt） -->
+        <!-- checkbox 定义复选框 -->
+        羽神的婚姻情况：未婚<input type="checkbox" name="2" checked>离异<input type="checkbox" name="" checked>丧偶<input
+            type="checkbox" checked><br>
+        羽神的婚姻情况：未婚<input type="radio" name="1" value="未婚">离异<input type="radio" name="1" value="离异">丧偶<input
+            type="radio" name="1" value="丧偶" checked><br>
+
+        <!-- 单选按钮和复合框可以设置checked 属性，当页面打开的时候就可以默认选中这个按钮 -->
+        <!-- radio是单选按钮 多选一 -->
+        <!-- nome是表单元素名字 这里性别单选按钮必须有相同的名字 name 才能实现多选1 可以随便写  是给我们程序员看的   -- > 
+            <!--  -->
+        用户名：<input type="text" name="随便写这个" value="请输入密码"> <br>
+        <input type="submit" value="赶紧点我吧小伙子">
+        <!-- 点击了提交按钮 submit，可以把表单域form 里面的表单元素里面的值 提交给后台服务器 -->
+        <input type="reset" value="你敢点我一下子吗">
+        <!-- 重置按钮 reset可以还原表格元素初始的默认状态  -->
+        <input type="button" value="获取验证码"><br>
+        <!-- 普通按钮 button 后期结合js搭配使用 -->
+        上传头像：<input type="file">
+        <!-- file 文件域 上传文件使用的 -->
+        <input type="radio" name="1">
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 键盘事件对象中的keyCode舒兴国可以得到相应键的ASCLL码值
+        // 1 我们keyup 和 keydown事件不区分大小写 a 和A得到的都是65
+        // 2我们keypress 事件 区分大小写 a和A得到的都是65
+        document.addEventListener('keyup', function (e) {
+            console.log('up' + e.keyCode);
+            // 我们可以利用keycode 返回ASCII码值来判断用户按下哪个键
+            if (e.keyCode == 65) {
+                alert('您按下了a键');
+            } else {
+                alert('您没有按下a');
+            }
+
+        })
+        document.addEventListener('keypress', function (e) {
+            console.log('press' + e.code);
+
+        })
+    </script>
+</body>
+
+</html>

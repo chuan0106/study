@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var a = []
+    a[1] = 2
+    console.log(a.length); //2
+    console.log(a);  //[empty, 2]
+
+
+
+    var A = { a: 1, b: 2 }
+    var B = A
+    B.a = 3
+    console.log(A);
+    console.log(B);
+    // 公用的一个内存地址 结果:3 2
+
+
+    // for (let i = 0; i < 5; i++) {
+    //   setTimeout(handler: function () {
+    //     console.log(new Date, i, 1);
+    //   }, 1000)
+    //   console.log(new Date, i);
+    // }
+    // 请通过代码 求1000以内质数和(质数:只能被1和它本身整除的数)
+    function show(row) {
+      var sum = 0;
+      for (var i = 2; i < row; i++) {
+        var coal = true;
+        for (var j = 2; j <= i; j++) {
+          if (i % j == 0) {
+            coal = false;
+            break;
+          }
+        }
+        sum += i;
+      }
+      console.log(sum);
+    }
+    show();
+
+  </script>
+</body>
+
+</html>

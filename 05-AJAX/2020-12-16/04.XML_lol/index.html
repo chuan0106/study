@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>解析XML-lol</h2>
+    <input type="button" value="解析lol ajax">
+</body>
+<script>
+    document.querySelector('input').onclick = function () {
+
+        // 1 创建异步对象
+        var xhr = new XMLHttpRequest();
+        // 2 设置请求行(get请求数据写在url后面)
+        xhr.open('get', './lol.xml');
+        // 3 设置请求头(get请求可以省略 post 不发送数据也可以省略)
+        //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // 3.5 注册回调函数
+        xhr.onreadystatechange = function () {
+            // 判断状态&请求是否成功并使用数据据
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var na = xhr.responseXML.querySelectorAll('part');
+                console.log(na);
+                var ul = document.createElement('ul');
+                document.body.appendChild(ul);
+                for (var i = 0; i < na.length; i++) {
+                    console.log(na[i]);
+                    var currentHero = na[i];
+                    var name = currentHero.querySelector('name').innerHTML;
+                    var age = currentHero.querySelector('age').innerHTML;
+                    console.log(name + '\\' + age);
+                    var lis = document.createElement('li');
+                    lis.innerHTML = '<span>' + name + '</span>' + age;
+                    ul.appendChild(lis);
+                }
+
+            };
+        };
+        // 4 请求主体发送(get请求为空 或者null post 请求数据卸载这里 如果没有数据 直接为空 或者null)
+        xhr.send(null);
+
+    }
+</script>
+
+</html>

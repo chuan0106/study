@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/JQuery.min.js"></script>
+    <script>
+        $(function () {
+            function $(ele) {
+                return document.querySelector(ele);
+            }
+            console.log($('span'));
+            // 1 如果是$ 符号冲突 我们就是用jQuery
+            // $.each();  // 上面函数用了$ 这个名字
+            jQuery.each();
+            // 2 让jQuery 释放对$ 控制权 让用户自己决定
+            var hah = jQuery.noConflict();
+            console.log(hah('div'));
+        })
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+    <cpn></cpn>
+    <cpn></cpn>
+
+    <cpn></cpn>
+
+  </div>
+  <template id="cpn">
+    <div>
+      <h2>当前计数器: {{counter}}</h2>
+      <button @click="increment">+</button>
+      <button @click="decrement">-</button>
+    </div>
+  </template>
+  <script>
+    // 1.注册组件
+    const obj = {
+      counter: 0
+    }
+    Vue.component('cpn', {
+      template: '#cpn',
+      // data() {
+      //   return {
+      //     counter: 0
+      //   }
+      // },
+      data() {
+        return obj   // 这种会相互影响
+      },
+      methods: {
+        increment() {
+          this.counter++
+        },
+        decrement() {
+          this.counter--
+        }
+      },
+    })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊小帅哥'
+      }
+    })
+
+
+    // 指向的不是同一个内存地址  如果在这里 return 的是 obj 那个就是统一个内存地址
+    // let obj = {
+    //   name: '小哥哥你真帅',
+    //   age: 18,
+    //   height: 178
+    // }
+
+    function abc() {
+      return {
+        name: '小哥哥你真帅',
+        age: 18,
+        height: 178
+      }
+    }
+    let obj1 = abc()
+    let obj2 = abc()
+    let obj3 = abc()
+  </script>
+</body>
+
+</html>

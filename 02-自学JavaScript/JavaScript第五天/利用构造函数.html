@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Star(name, type, blood) {
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.sing = function (attck) {
+                console.log(attck);
+
+            }
+        }
+        var lp = new Star('廉颇', '力量型', '500血量');
+        console.log(lp);
+        lp.sing('远程');
+
+        var hy = new Star('后裔', '射手型', '100血量');
+        console.log(hy);
+        hy.sing('近战');
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

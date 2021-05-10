@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="./JQuery.min.js"></script>
+<style>
+    .sub .disabled {
+        background: gray !important;
+        cursor: not-allowed !important;
+    }
+
+    .cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(./1608283738\(1\).jpg)no-repeat center, gray;
+        opacity: .7;
+        display: none;
+    }
+
+
+    .tips {
+        position: absolute;
+        font-size: 20px;
+        transform: translateY(-10px);
+        display: block;
+    }
+
+    .sub {
+        width: 80px;
+        height: 40px;
+    }
+
+    .disabled {
+        background-color: green;
+    }
+</style>
+
+<body>
+    <div id="bg"><img src="./羽神3.jpg" alt=""> </div>
+    <div id="register">
+        <div class="logo"> <a href=""></a></div>
+        <div class="box">
+            <div class="regform">
+                <h2>jQuery实现版本</h2>
+                <form action="" method="POST">
+                    <table>
+                        <tr>
+                            <td>用户名：</td>
+                            <td><input type="text" class="inputName"></td>
+                            <td><span class="tips">站位文本</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center">
+                                <input type="button" value="注册" class="sub disabled">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="quickreg">
+                <h2>快速注册</h2>
+                <div class="apps">
+                    <a href="" class="qq"></a>
+                    <a href="" class="sina"></a>
+                    <a href="" class="taobao"></a>
+                    <a href="" class="douban"></a>
+                </div>
+                <div class="nowlog"> <a href="">已有账号 现在去登录</a></div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+
+    <div class="cover"></div>
+</body>
+<!-- 需求1 
+失去焦点 开启遮罩层 cover
+ajax 验证用户名
+文本框 inputName
+调用验证用户名接口
+请求回来之后
+关闭遮罩层
+修改文本框之后的提示 tips
+延迟一会后消失
+
+需求2 
+按钮根据是否可以注册 变绿
+可以 => 变绿
+
+
+需求3 
+点击注册按钮
+弹出遮罩层
+注册 ajax 接口文档 
+请求回来之后
+关闭遮罩层
+信息设置提示 tips
+
+需求4 
+注册按钮 不能一直点
+当注册按钮 有disable 这个类 就不能点
+判断类名
+提示用户
+反之可以点
+
+
+需求5
+注册成功之后
+禁用按钮的点击
+-->
+
+
+</html>
+<script>
+    $(function () {
+        $('.inputName').blur(function () {
+            $('.cover').show();
+            $.ajax({
+                url: '../00.backData/data/person.json',
+                type: 'get',
+                // data: 'name=' + $(this).val(),
+                success: function (data) {
+                    console.log(data);
+                    // 遮罩层 关
+                    $('.cover').delay(1000).hide(1000);
+                    // 修改span的内容
+                    $('.tips').html(data[0]['name']).fadeIn(1000).delay(2000).fadeOut();
+                    if (data[0]['skill'] == '打游戏') {
+                        $('.sub').removeClass('disabled');
+                    };
+
+                }
+            })
+        })
+        $('.sub').click(function () {
+            if ($(this).hasClass('disabled') == false) {
+                alert('哥们 别点了');
+                return;
+            }
+            $('.cover').show();
+            $.ajax({
+                type: 'get',
+                // url: './data.php',
+                url: '../00.backData/data/person.json',
+                data: 'name' + $('.inputName').val(),
+                success: function (data) {
+                    $('.cover').delay(2000).hide(1000);
+                    // delay 让后面的动画 延迟一会
+                    $('.tips').html(data[0]['name']).fadeIn(1000).delay(2000).fadeOut();
+                }
+            })
+        })
+
+    })
+</script>

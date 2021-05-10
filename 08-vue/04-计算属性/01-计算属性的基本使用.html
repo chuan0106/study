@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+
+    <h2>{{firsName + ' ' + lastName}}</h2>
+    <h2>{{firsName}} {{lastName}}</h2>
+    <h2>{{getFillName()}}</h2>
+
+    <h2>{{fullName}}</h2>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        firsName: '雨神',
+        lastName: '少主'
+      },
+      // 计算属性()
+      computed: {
+        fullName: function () {
+          return this.firsName + ' ' + this.lastName
+        }
+      },
+      methods: {
+        getFillName: function () {
+          return this.firsName + ' ' + this.lastName
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

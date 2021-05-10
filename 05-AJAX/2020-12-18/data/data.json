@@ -1,0 +1,32 @@
+[
+    {
+        "name": "羽神",
+        "skill": "打游戏",
+        "path": "./images/羽神1.jpg"
+    },
+    {
+        "name": "刘备",
+        "skill": "干活",
+        "path": "/images/羽神2.jpg"
+    },
+    {
+        "name": "关羽",
+        "skill": "骑马",
+        "path": "./images/羽神3.jpg"
+    },
+    {
+        "name": "张飞",
+        "skill": "老八蜜汁小汉堡",
+        "path": "./images/羽神4.jpg"
+    },
+    {
+        "name": "郭帅",
+        "skill": "打牌",
+        "path": "打游戏"
+    },
+    {
+        "name": "龙龙",
+        "skill": "数钱",
+        "path": "打游戏"
+    }
+]

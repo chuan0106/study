@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        position: relative;
+        width: 249px;
+        height: 35px;
+        border: 1px solid #ccc;
+    }
+
+    div::after {
+        content: '';
+        position: absolute;
+        right: 12px;
+        top: 5px;
+        width: 15px;
+        height: 15px;
+        transform: rotate(45deg);
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        transition: all 0.3s;
+    }
+
+    /* 鼠标经过div  里面的三角旋转 */
+    div:hover::after {
+        transform: rotate(225deg);
+    }
+</style>
+
+<body>
+    <div></div>
+</body>
+
+</html>

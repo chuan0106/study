@@ -1,0 +1,37 @@
+
+    *{margin:0;padding:0}em,i{font-style:normal}li{list-style:none}img{border:0;vertical-align:middle}button{cursor:pointer}a{color:#666;text-decoration:none}a:hover{color:#c81623}button,input{font-family:Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif}body{-webkit-font-smoothing:antialiased;background-color:#fff;font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;color:#666}.hide,.none{display:none}.clearfix:after{visibility:hidden;clear:both;display:block;content:".";height:0}.clearfix{*zoom:1}
+    /* 初始化 */
+   body{
+            background: url(/images/1590217240.jpg)no-repeat center;
+            background-size: 100%;
+   }
+    .reg-form {
+   margin: 120px auto;
+   padding-top:  8px; ;
+      
+      width: 600px;
+     
+  }
+  .reg-form ul li {
+      margin-bottom: 20px;
+  }
+  .reg-form ul li label {
+      display: inline-block;
+      width: 88px;
+      text-align: right;
+  
+  }
+  .reg-form ul li input {
+      width: 242px;
+      height: 37px;
+      border: 1px solid #cccccc;
+  }
+  .wenzi {
+font-size: 30px;
+    display: inline-block;
+    margin: 30px 23%;
+   color: #c81623;
+   width: 200px;
+   height: 200px;
+  }
+  

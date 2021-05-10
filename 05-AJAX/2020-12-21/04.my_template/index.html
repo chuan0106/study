@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>自己实现模板引擎</h2>
+</body>
+
+</html>
+<!-- 
+    模板引擎的原理
+    通过id 获取模板中的内容 字符串
+    调用方式时
+    找到字符串 特殊的符号{{}}  正则表达式
+    使用对象对应的属性 进行替换
+    返回字符串
+ -->
+<script type="text/html" id="template">
+<ul>
+<li>{{name}}</li>
+<li>{{skill}}</li>
+</ul>
+</script>
+<script>
+    /*
+      // 模板引擎 template(模板,数据) 返回字符串    
+    
+      // 1 获取末班中的内容 通过id
+      var str = document.querySelector('#template').innerHTML;
+      console.log(str);
+      // 2 准备对象
+      var data = {
+          name: '雨神',
+          skill: '我爱的游戏'
+      }    
+    
+      // 3 检索满足条件的部分
+      var reg = /{{(\w+)}}/;
+      var result = reg.exec(str);
+      // 4 替换模板中的内容
+      //   {{name}}   data{name}
+      str = str.replace(result[0], data[result[1]]);
+      console.log(str);
+      // 再次检索 替换
+      var result = reg.exec(str);
+      str = str.replace(result[0], data[result[1]]);
+      //   {{skill}}   data{skill}
+      console.log(str);
+      console.log(reg.exec(str));
+      // 到底有几个坑  我们不能确定
+      // 替换几次  也不能确定
+      // 但是每次替换的代码是相同的 只是次数不确定
+      // while 循环
+      // 停止的条件 找不到结果
+    */
+
+</script>
+<script>
+    /*
+     // 使用while 循环优化
+    // 数据
+    var data = {
+        name: '雨神',
+        skill: '我爱的游戏'
+    };
+    // 字符串
+    var str = document.querySelector('#template').innerHTML;
+    // 定义正则
+    var reg = /{{(\w+)}}/;
+  
+    var result = reg.exec(str);
+    // 循环替换 知道为null 替换
+while (result) {
+      //   {{name}}   data{name}
+    str=str.replace(result[0],data[result[1]]);
+    // 再次检索
+    result=reg.exec(str);
+}
+console.log(str);
+*/
+</script>
+<!-- 引入模板引擎 -->
+<script src="./template.js"></script>
+<script>
+    // 使用自己封装的模板引擎
+    // 准备数据
+  
+   var data ={
+       name: '雨神',
+        skill: '我爱的游戏'
+    };
+
+var resultString= my_template('template',data);
+console.log(resultString);
+</script>

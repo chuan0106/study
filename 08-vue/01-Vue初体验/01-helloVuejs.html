@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="../js/vue.js"></script>
+
+<body>
+
+  <div id="app">
+    {{ message }}
+    <h2>{{ name }}</h2>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',  // 用于挂载要管理的元素
+      data: { // 定义数据
+        message: 'hello,Vue',
+        name: 'jack'
+      }
+    })
+
+
+        // 原生js 的做法(编程范式: 命令式编程)
+        // 1 创建div 元素 设置id 属性
+        // let app = document.querySelector('#app')
+        // 2 定义一个变量叫message
+        // let message = 'hello'
+        // console.log(message);
+        // 3 将message 变量放在前面的div元素中显示
+        // app.innerHTML = message
+        // 4 修改message 的数据: 今天真不错!
+        // message = '今天真不错'
+        // 5 将修改后的数据再次替换到div元素中
+        // app.innerHTML = message
+
+  </script>
+
+
+
+  <!-- <div id="div1">
+        <p id="p1">这是一个段落。</p>
+        <p id="p2">这是另一个段落。</p>
+    </div>
+
+    <script>
+        //添加的第一个文本(多次覆盖内容)
+        var newEle = document.getElementsByTagName("p");
+        newEle[0].innerHTML = "new paragraph";  //输出结果:new paragraph
+
+        //添加的第二个文本(可追加内容多次)
+        var newText2 = document.createTextNode(" hello world");
+        newEle[0].appendChild(newText2);
+
+    //输出结果:new paragraph hello world
+
+    </script> -->
+
+</body>
+
+</html>

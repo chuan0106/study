@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }} <br>
+    <!-- <input v-model="message" type="text" /> -->
+    <!-- <input type="text" :value="message" @input="valueChange"> -->
+    <input type="text" :value="message" @input="message=$event.target.value">
+
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊小帅哥'
+      },
+      methods: {
+        value(event) {
+          console.log('----', event);
+          this.message = event.target.value
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

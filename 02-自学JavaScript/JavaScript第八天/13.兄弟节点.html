@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+        var div = document.querySelector('div');
+        // newxtSibling 下一个兄弟节点 包含元素节点或者文本节点等等
+        console.log(div.nextSibling);
+        console.log(div.previousSibling);  // previousSibling上一个兄弟节点 包含元素节点或者文本节点等等
+        console.log(div.nextElementSibling);  // nextElementSibling 返回当前元素下一个兄弟元素节点  找不到返回null
+        console.log((div.previousElementSibling));  // previousElementSibling 返回当前元素下一个兄弟元素节点  找不到返回null  // i9以上支持 同上
+
+
+    </script>
+</body>
+
+</html>

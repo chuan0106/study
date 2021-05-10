@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/JQuery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            /* 过渡 */
+            transition: all 0.5s;
+        }
+
+        .current {
+            background-color: red;
+            /* 旋转 */
+            transform: rotate(360deg);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="current">哈哈哈 </div>
+
+    <script>
+
+        $(function () {
+
+            // 1 添加类 addClass()
+            // $('div').click(function () {
+            //     $(this).addClass('current');
+            // })
+            // 2 删除类 removeClass()
+            // $('div').click(function () {
+            //     $(this).removeClass('current');
+            // })
+            // 3  切换类 toggleClass()
+            $('div').click(function () {
+                $(this).toggleClass('current');
+            })
+        })
+    </script>
+</body>
+
+</html>

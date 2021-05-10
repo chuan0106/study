@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+    }
+
+    div:hover {
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <div></div>
+    <h2>异步对象</h2>
+    <input type="button" value="ajax请求">
+    <input type="button" value="ajax请求2" class="lastBtn">
+</body>
+<script>
+    /*
+        异步对象
+    同时干很多事情
+        同步
+        指的是一件事 一件事的干
+        */
+    document.querySelector('input').onclick = function () {
+
+        // 1 创建对象
+        var xhr = new XMLHttpRequest();
+        // 2 设置请求行(get请求数据写在url后面)
+        // 使用同步的模式 来发送请求
+        // 参数3 是否使用一部 默认是true false(同步)
+        // 同步 请求响应回来之前 什么事都做不了
+        // 基本上 不会使用这个模式 知道有这个选项即可
+        xhr.open('get', 'xxx.php', false);
+        // 3 设置请求头(get请求可以省略 post 不发送数据也可以省略)
+        //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // 3.5 注册回调函数
+        xhr.addEventListener('load', function (e) {
+            // 获取数据
+            console.log(xhr.responseText);
+        });
+        // 4 请求主体发送(get请求为空 或者null post 请求数据卸载这里 如果没有数据 直接为空 或者null)
+        xhr.send(null);
+    };
+    document.querySelector('.lastBtn').onclick = function () {
+
+        // 1 创建对象
+        var xhr = new XMLHttpRequest();
+        // 2 设置请求行(get请求数据写在url后面)
+        // 使用同步的模式 来发送请求
+        // 参数3 是否使用一部 默认是true false(同步)
+        // 同步 请求响应回来之前 什么事都做不了
+        // 基本上 不会使用这个模式 知道有这个选项即可
+        xhr.open('get', 'xxx.php');
+        // 3 设置请求头(get请求可以省略 post 不发送数据也可以省略)
+        //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // 3.5 注册回调函数
+        // 触发的事件很多
+        // 状态改变时触发 onreadystatechange 
+        xhr.onreadystatechange = function () {
+            // 只有当 状态码是4是 才去获取数据
+            console.log(xhr.status);  // 200 证明页面存在 404 不存在
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // 判断 响应回来 并且请求的页面存在 才去获取数据
+                console.log('我出发了');
+                console.log(xhr.readyState);
+                console.log(xhr.responseText);
+            }
+        };
+        // 4 请求主体发送(get请求为空 或者null post 请求数据卸载这里 如果没有数据 直接为空 或者null)
+        xhr.send(null);
+    };
+</script>
+</body>
+
+</html>

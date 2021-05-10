@@ -1,0 +1,30 @@
+<!-- layout 布局 模板 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Document</title>
+</head>
+{{ block 'head'}}
+
+{{ /block}}
+
+<body>
+    {{ include './header.html'}}
+    <!-- 挖一个坑 ,将来留给孩子去填坑-->
+    {{ block 'content' }}
+    <h1>默认内容</h1>
+    {{ /block}}
+    {{ include './footer.html'}}
+</body>
+{{ include './footer.html'}}
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+{{ block 'script'}}
+
+{{ /block}}
+
+</html>

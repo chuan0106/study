@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  数组 concat()的使用
+        var arr = ['a', 'b', 'c'];
+        var arr1 = ['d', 'e', 'f'];
+        var arr2 = arr.concat(arr1);
+        console.log(arr2);
+        // 数组 slice()的使用
+        var arr3 = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+        console.log(arr3.slice(2));  // ["camel", "duck", "elephant"]
+        console.log(arr3.slice(2, 4));  //["camel", "duck"]
+        console.log(arr3.slice(1, 5));  //["bison", "camel", "duck", "elephant"]
+        // 数组splice()的使用
+        var months = ['Jan', 'March', 'April', 'June'];
+        var removed = months.splice(3, 0, 'red')
+        console.log(months);
+        var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+        var removed = myFish.splice(3, 1);
+        console.log(myFish);
+
+// 运算后的 myFish: ["angel", "clown", "drum", "sturgeon"]
+// 被删除的元素: ["mandarin"]
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

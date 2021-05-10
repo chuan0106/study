@@ -1,0 +1,271 @@
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+   
+}
+
+@font-face {
+    /* 生命字体图标 这里一定要注意路径的变化 */
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?xqkggp');
+    src:  url('../fonts/icomoon.eot?xqkggp#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?xqkggp') format('truetype'),
+      url('../fonts/icomoon.woff?xqkggp') format('woff'),
+      url('../fonts/icomoon.svg?xqkggp#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.style-red {
+    color: #c81623;
+}
+/* 快捷导航模块 */
+.shortcut {
+    height: 31px;
+    line-height: 31px;
+    background-color: #f1f1f1;
+}
+.shortcut ul li {
+    float: left;
+    
+}
+.shortcut .fr ul li:nth-child(2n) {
+    /* 选择所有偶数的小li */
+    width: 1px;
+    height: 12px;
+    background-color: #666666;
+margin: 9px 15px;
+}
+.arrow-icon::after {
+    content: '';
+    font-family: 'icomoon';
+    margin-left: 6px;
+}
+.header {
+    /* header 头部制作 */
+    position: relative;
+    height: 105px;
+}
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 171px;
+    height: 61px;
+    background-color: skyblue;
+}
+.logo a {
+    display: block;
+    width: 171px;
+    height: 61px;
+    background: url(/案例/shoping/images/羽神3.jpg)no-repeat ;
+    background-size: 171px 61px;
+    /* font-size: 0;京东的做法 */
+    text-indent: -99em;
+    overflow: hidden;
+    /* 让文字隐藏式淘宝的做法 */
+}
+.search {
+    position: absolute;
+    left: 346px;
+    top: 25px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
+}
+.search input {
+    float: left;
+    width: 454px;
+    height: 32px;
+    padding-left: 10px;
+}
+.search button {
+    float: left;
+    width: 80px;
+    height: 32px;
+    background-color: #b1191a;
+    color: #fff;
+    font-size: 16px;
+}
+.hotwords {
+    position: absolute;
+    top: 66px;
+    left: 346px;
+}
+.hotwords a {
+    margin: 10px;
+}
+.shopcar {
+    position: absolute;
+    right: 60px;
+    top: 25px;
+    width: 140px;
+    height: 35px;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+    line-height: 35px;
+    text-align: center;
+    
+}
+.shopcar::before {
+    font-family: 'icomoon';
+
+}
+.shopcar::after {
+    font-family: 'icomoon';
+ content:  '';
+ color: red;
+}
+.count {
+    position: absolute;
+    top: -7px;
+    right: -2px;
+    height: 14px;
+    line-height: 14px;
+    color: #fff;
+    background-color: #e60012;
+    padding: 0 5px;
+    border-radius: 7px 7px 7px 0px;
+}
+.nav {
+    height: 47px;
+    border-bottom: 2px solid #b1191a;
+}
+.nav .dropdown {
+    float: left;
+    width: 210px;
+    height: 45px;
+    background-color: #b1191a;
+}
+.nav .navitems {
+    float: left;
+}
+.dropdown .dt {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    line-height: 45px;
+    text-align: center;
+    font-size: 16px;
+}
+.dropdown .dd {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 465px;
+    background-color: #c81623;
+
+}
+.dropdown .dd ul li {
+    height: 42px;
+    line-height: 42px;
+    margin-left: 2px;
+    padding-left: 10px;
+}
+.dropdown .dd ul li::after {
+    font-family: 'icomoon';
+    position: absolute;
+    right: 1px;
+    content: '';
+    margin-right: 18px;
+    color:pink;
+    font-size: 10px;
+}
+
+.dropdown .dd ul li:hover {
+    background-color: #fff;
+    
+}
+
+.dropdown .dd ul li a {
+    font-size: 14px;
+    color: #fff;
+}
+.dropdown .dd ul li:hover a {
+   
+   color: #c81623;
+}
+.navitems ul li {
+    float: left;
+    
+}
+.navitems ul li a {
+    display: block;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+    padding: 0 25px;
+}
+/* 底部模块制作 */
+.footer {
+    padding-top: 30px;
+    height: 415px;
+    background-color: #f5f5f5;
+}
+.mod-service {
+    height: 80px;
+    border-bottom: 1px solid #cccccc;
+}
+.mod-service ul li {
+    padding-left: 35px;
+    float: left;
+    width: 300px;
+    height: 50px;
+}
+.mod-service ul li h5 {
+    float: left;
+    height: 50px;
+    width: 50px;
+    background: url(/案例/shoping/images/icons.png)no-repeat -252px -2px;
+    margin-right: 8px;
+}
+.service-txt h4 {
+    font-size: 14px;
+}
+.service-txt p {
+    font-size: 12px;
+}
+.mod-help {
+    height: 185px;
+    border: 1px solid #cccccc;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+.mod-help dl dt {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.mod-help dl {
+    float: left;
+    width: 200px;
+}
+.mod-help dl:last-child {
+    text-align: center;
+    width: 90px;
+}
+.mod-help dl img {
+    
+    width: 90px;
+    height: 90px;
+}
+.mod-copyright {
+    text-align: center;
+    padding-top: 15px;
+}
+.links {
+    margin-bottom: 15px;
+
+}
+.copuright {
+    height: 20px;
+}
+.links a {
+    margin: 0 3px;
+}

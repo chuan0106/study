@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            color: red;
+
+        }
+
+        /* li的权重是1 */
+
+        ul li {
+            color: darkblue;
+        }
+
+        /* ul li权重是1加1 自然是2 */
+
+        .gav li {
+            color: pink;
+        }
+
+        /* .gav li 权重是加一 自然是11 */
+    </style>
+</head>
+
+<body>
+    <ul class="gav">
+        <li>大猪蹄子</li>
+        <li>大肘子</li>
+        <li>猪尾巴</li>
+    </ul>
+</body>
+
+</html>

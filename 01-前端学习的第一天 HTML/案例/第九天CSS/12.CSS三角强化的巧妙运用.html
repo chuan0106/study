@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+
+            width: 0;
+            height: 0;
+            border-top: 200px solid transparent;
+            border-bottom: 0 solid red;
+            border-left: 100px solid transparent;
+            border-right: 100px solid hotpink;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 24px;
+            font-size: 12px;
+            line-height: 24px;
+            text-align: center;
+            border: 1px solid pink;
+
+        }
+
+        .box2 .x1 {
+            margin-right: 5px;
+            float: left;
+            position: relative;
+            width: 60px;
+            height: 24px;
+            background-color: pink;
+        }
+
+        .box2 i {
+
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-color: transparent #fff transparent transparent;
+            border-style: solid;
+            border-width: 24px 8px 0 0;
+        }
+
+        .box2 .x2 {
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2">
+        <span class="x1">1045 <i></i></span>
+        <span class="x2">3009</span>
+    </div>
+
+</body>
+
+</html>

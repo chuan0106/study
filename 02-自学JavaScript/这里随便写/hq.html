@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: fixed;
+            /* 1.走浏览器宽的一半 */
+            left: 50%;
+            /* 2.利用margin走版心的一半 */
+            margin-left: -164px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="/images/羽神2.jpg" alt="">
+    </div>
+    <div class="wh"></div>
+    <script>
+        var wh = document.querySelector('.wh');
+        var date = new Date();
+        var h = date.getHours();
+        if (h < 6) {
+            wh.innerHTML = ': 亲 凌晨好';
+        } else if (h < 12) {
+            wh.innerHTML = ': 亲 上午好';
+        } else if (h < 18) {
+            wh.innerHTML = ': 亲 下午好';
+        }
+        else {
+            wh.innerHTML = ': 亲 晚上好';
+        }
+    </script>
+</body>
+
+</html>

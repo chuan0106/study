@@ -1,0 +1,89 @@
+.w {
+  width: 1200px;
+  margin: 0 auto;
+}
+header {
+  height: 84px;
+  border-bottom: 2px solid #c81523;
+  line-height: 84px;
+}
+header img {
+  height: 60px;
+  width: 60px;
+}
+.registerarea {
+  height: 522px;
+  border: 1px solid #cccccc;
+  margin-top: 20px;
+}
+.registerarea h3 {
+  height: 42px;
+  border: 1px solid #cccccc;
+  background-color: #ececec;
+  line-height: 42px;
+  padding: 0 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.login {
+  float: right;
+  font-size: 14px;
+}
+.login a {
+  color: #c81523;
+}
+.reg-form {
+  width: 600px;
+  margin: 50px auto;
+}
+.reg-form ul li {
+  margin-bottom: 20px;
+}
+.reg-form ul li label {
+  display: inline-block;
+  width: 88px;
+  text-align: right;
+}
+.reg-form ul li .inp {
+  width: 242px;
+  height: 37px;
+  border: 1px solid #cccccc;
+}
+.error {
+  color: red;
+}
+.error-icon,
+.success-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -2px;
+  width: 20px;
+  height: 20px;
+  background: url(/案例/images/羽神3.jpg) no-repeat;
+  background-size: 20px 20px;
+}
+.success {
+  color: green;
+}
+.success-icon {
+  background: url(/案例/images/羽神2.jpg) no-repeat;
+  background-size: 20px 20px;
+}
+.agree {
+  padding-left: 95px;
+}
+.agree input {
+  vertical-align: middle;
+  /* 文字 input 同一行显示 */
+}
+.agree a {
+  color: blue;
+}
+.btn {
+  width: 200px;
+  background-color: #c81623;
+  height: 34px;
+  font-size: 14px;
+  color: #fff;
+  margin: 10px 0 0 70px;
+}

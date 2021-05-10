@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手机详情页</title>
+    <meta name="description" content="品优购JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、
+        母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!" />
+    <meta name="Keywords" content="网上购物,网上商城,手机,笔记本,
+        电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,品优购" />
+
+    <link rel="stylesheet" href="css/base.css">
+    <!-- 引入我们初始化样式文件 -->
+    <link rel="stylesheet" href="css/commcn.css">
+    <!-- 引入我们公共的样式文件 -->
+    <link rel="shortcut icon" href="yushen.ico" />
+    <!-- 引入favicom图标 -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 引入我们index.css首页文件 -->
+    <style>
+        .cont {
+            margin-top: 20px;
+        }
+
+        /* title */
+        .wrap {
+            width: 100%;
+            height: 25px;
+            line-height: 25px;
+        }
+
+        .wrap a {
+            margin: 0 5px;
+        }
+
+        /* first part */
+        /* first part left */
+        .preview {
+            width: 400px;
+            height: 520px;
+        }
+
+        .pre-img {
+            position: relative;
+            height: 400px;
+            border: 1px solid #ccc;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background-color: #FEDE4F;
+            opacity: .5;
+            border: 1px solid #ccc;
+            cursor: move;
+        }
+
+        .big {
+            display: none;
+            overflow: hidden;
+            /* 图片大于"放大镜"，需要截掉超出部分 */
+            position: absolute;
+            top: 0;
+            left: 400px;
+            width: 500px;
+            height: 500px;
+            background-color: lightblue;
+            z-index: 10;
+            border: 1px solid #ccc;
+        }
+
+        .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .pre-list {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            margin-top: 30px;
+        }
+
+        .list-item {
+            width: 320px;
+            height: 60px;
+            margin: 0 auto;
+        }
+
+        .list-item li {
+            float: left;
+            width: 56px;
+            height: 56px;
+            border: 2px solid #fff;
+            margin: 0 2px;
+            cursor: pointer;
+            transition: all .5s;
+        }
+
+        .list-item li:hover {
+            border: 2px solid #e12228;
+        }
+
+        .arrow-prev,
+        .arrow-next {
+            position: absolute;
+            top: 15px;
+            width: 22px;
+            height: 32px;
+        }
+
+        .arrow-prev {
+            left: 0;
+            background: url(../images/arrow-prev.png) no-repeat;
+        }
+
+        .arrow-next {
+            right: 0;
+            background: url(../images/arrow-next.png) no-repeat;
+        }
+
+        /* first part right */
+        .item-info {
+            width: 718px;
+        }
+
+        .phone-name {
+            width: 100%;
+            height: 30px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .deco {
+            width: 100%;
+            height: 32px;
+            color: #e12228;
+        }
+
+        .summary dl {
+            overflow: hidden;
+        }
+
+        .summary dt,
+        .summary dd {
+            float: left;
+        }
+
+        .summary dt {
+            width: 75px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            color: #000;
+        }
+
+        .sum-price,
+        .sum-pro {
+            position: relative;
+            width: 700px;
+            height: 40px;
+            line-height: 40px;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #e12228;
+        }
+
+        .price-cut {
+            position: absolute;
+            top: 0;
+            left: 220px;
+            color: #c81623;
+        }
+
+        .remark {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            font-size: 14px;
+        }
+
+        .remark i {
+            color: #000;
+        }
+
+        .sum-pro em {
+            display: inline-block;
+            width: 60px;
+            height: 35px;
+            margin: 3px 0;
+            line-height: 35px;
+            text-align: center;
+            font-size: 14px;
+            background-color: #c81623;
+            color: #fff;
+        }
+
+        .sum-pro i {
+            padding-left: 8px
+        }
+
+        .sum-pro a {
+            position: absolute;
+            top: 1px;
+            right: 20px;
+            color: #c81623;
+        }
+
+        .sum-sup {
+            line-height: 40px;
+        }
+
+        .col-cho a,
+        .ver-cho a,
+        .type-cho a {
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+            margin: 4px 3px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+            background-color: #f7f7f7;
+            border: 1px solid #ededed;
+            transition: all .5s;
+        }
+
+        .col-cho a:hover,
+        .ver-cho a:hover,
+        .type-cho a:hover {
+            border: 1px solid #c81623;
+            background-color: #c81623;
+            color: #fff;
+        }
+
+        .cho-btns {
+            margin-top: 20px;
+        }
+
+        .cho-amo {
+            position: relative;
+            float: left;
+            width: 50px;
+            height: 45px;
+            background-color: pink;
+        }
+
+        .cho-amo input {
+            width: 35px;
+            height: 43px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        .add,
+        .reduce {
+            position: absolute;
+            right: 0;
+            width: 15px;
+            height: 22px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .add {
+            top: 0;
+        }
+
+        .reduce {
+            bottom: 0;
+            cursor: not-allowed;
+            /*禁止鼠标样式*/
+        }
+
+        .addcar {
+            float: left;
+            width: 140px;
+            height: 45px;
+            margin-left: 10px;
+            line-height: 45px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            background-color: #c81623;
+            color: #fff;
+        }
+
+        .addcar:hover {
+            color: #fff;
+        }
+
+        /* second part left */
+        .aside {
+            width: 210px;
+            border: 1px solid #ccc;
+        }
+
+        .tab-list {
+            height: 34px;
+        }
+
+        .tab-list li {
+            float: left;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: #f1f1f1;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab1,
+        .tab2 {
+            width: 104px;
+            border-left: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            transition: all .3s;
+            cursor: pointer;
+        }
+
+        .tab1:hover,
+        .tab2:hover {
+            border-bottom: 1px solid #fff;
+            background-color: #fff;
+        }
+
+        .tab-con {
+            padding: 0 10px;
+        }
+
+        .tab-con-list {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab-con li h5 {
+            margin-left: 15px;
+            white-space: nowrap;
+            /* 文本不进行换行 */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* 超出的文字省略号显示 */
+            font-weight: 400;
+        }
+
+        .aside-price {
+            display: inline-block;
+            font-weight: 700;
+            margin: 10px 27px;
+        }
+
+        .as-addcar {
+            display: inline-block;
+            width: 88px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            border: 1px solid #ccc;
+            background-color: #f7f7f7;
+            transition: all .5s;
+        }
+
+        .as-addcar:hover {
+            color: #fff;
+            border: 1px solid #c81623;
+            background-color: #c81623;
+        }
+
+        /* second part right */
+        .detail {
+            width: 981px;
+        }
+
+        .de-tab {
+            height: 35px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .de-tab a {
+            float: left;
+            width: 195px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 16px;
+            border-left: 1px solid #ccc;
+            transition: all .5s;
+            cursor: pointer;
+        }
+
+        .de-tab .a-first {
+            border-left: 0;
+        }
+
+        .de-tab a:hover {
+            background-color: #c81623;
+            color: #fff;
+        }
+
+        .de-info {
+            padding: 14px 0 0 20px;
+        }
+
+        .de-info li {
+            line-height: 22px;
+        }
+
+        .more {
+            float: right;
+            margin: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'icomoon';
+        }
+
+        .iPhone {
+            margin-top: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- shortcut start -->
+    <header class="shortcut">
+        <div class="w">
+            <div class="fl">
+                <ul>
+                    <li>品优购欢迎您！</li>
+                    <li class="login">
+                        <a href="javascript:;">请登录</a>
+                        <a href="register.html" target="_blank" class="style-red">免费注册</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="fr">
+                <ul>
+                    <li><a href="javascript:;">我的订单</a></li>
+                    <li class="spacer"></li>
+                    <li>
+                        <a href="javascript:;">我的品优购</a>
+                        <i class="icomoon"></i>
+                    </li>
+                    <li class="spacer"></li>
+                    <li><a href="javascript:;">品优购会员</a></li>
+                    <li class="spacer"></li>
+                    <li><a href="javascript:;">企业采购</a></li>
+                    <li class="spacer"></li>
+                    <li>
+                        <a href="javascript:;">关注品优购</a>
+                        <i class="icomoon"></i>
+                    </li>
+                    <li class="spacer"></li>
+                    <li>
+                        <a href="javascript:;">客户服务</a>
+                        <i class="icomoon"></i>
+                    </li>
+                    <li class="spacer"></li>
+                    <li>
+                        <a href="javascript:;">网站导航</a>
+                        <i class="icomoon"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- shortcut end -->
+
+    <!-- header start -->
+    <div class="header w">
+        <div class="logo">
+            <h1><a href="index.html" title="品优购">品优购</a></h1>
+        </div>
+        <div class="search">
+            <input type="text" class="text" placeholder="请输入内容">
+            <button class="btn">搜索</button>
+        </div>
+        <div class="hotwords">
+            <a href="javascript:;">优惠购首发</a>
+            <a href="javascript:;">亿元优惠</a>
+            <a href="javascript:;">9.9元团购</a>
+            <a href="javascript:;">美满99减30</a>
+            <a href="javascript:;">办公用品</a>
+            <a href="javascript:;">电脑</a>
+            <a href="javascript:;">通信</a>
+        </div>
+        <div class="shopcar">
+            <i class="car"></i>
+            <span>我的购物车</span>
+            <i class="arrow"></i>
+            <i class="count">80</i>
+        </div>
+    </div>
+    <!-- header end -->
+
+    <!-- nav start -->
+    <div class="nav">
+        <div class="w">
+            <div class="dropdown fl">
+                <div class="dt">全部商品分类</div>
+                <div class="dd">
+                    <ul>
+                        <li class="menu_item"><a href="#">家用电器</a><i></i></li>
+                        <li class="menu_item"><a href="list.html" target="_blank">手机、数码、通信</a><i></i></li>
+                        <li class="menu_item"><a href="#">电脑、办公</a><i></i></li>
+                        <li class="menu_item"><a href="#">家具、厨具</a><i></i></li>
+                        <li class="menu_item"><a href="#">男装、女装、童装</a><i></i></li>
+                        <li class="menu_item"><a href="#">化妆品、清洁用品</a><i></i></li>
+                        <li class="menu_item"><a href="#">箱包、珠宝</a><i></i></li>
+                        <li class="menu_item"><a href="#">汽车用品</a><i></i></li>
+                        <li class="menu_item"><a href="#">乐器</a><i></i></li>
+                        <li class="menu_item"><a href="#">母婴、玩具</a><i></i></li>
+                        <li class="menu_item"><a href="#">食品、酒类、生鲜</a><i></i></li>
+                        <li class="menu_item"><a href="#">医药保健</a><i></i></li>
+                        <li class="menu_item"><a href="#">图书、音像、电子书</a><i></i></li>
+                        <li class="menu_item"><a href="#">彩票、充值、票务</a><i></i></li>
+                        <li class="menu_item"><a href="#">理财、众筹</a><i></i></li>
+                </div>
+            </div>
+            <div class="navitems fl">
+                <ul>
+                    <li><a href="#">服装城</a></li>
+                    <li><a href="#">美妆馆</a></li>
+                    <li><a href="#">传智超市</a></li>
+                    <li><a href="#">全球购</a></li>
+                    <li><a href="#">闪购</a></li>
+                    <li><a href="#">团购</a></li>
+                    <li><a href="#">拍卖</a></li>
+                    <li><a href="#">有趣</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- nav end -->
+
+    <!-- content start -->
+    <div class="cont w">
+        <!-- title -->
+        <div class="wrap">
+            <a href="#">手机、数码、通讯</a> >
+            <a href="#">手机</a> >
+            <a href="#">苹果</a> >
+            <a href="#">iphone 6S Plus</a>
+        </div>
+        <!-- first part -->
+        <div class="pro-intro clearfix">
+            <!-- first part left -->
+            <div class="preview fl">
+                <div class="pre-img">
+                    <img src="../upload/s3.png" alt="">
+                    <div class="mask"></div>
+                    <div class="big">
+                        <!-- 放大镜 -->
+                        <img src="../upload/big.jpg" alt="" class="bigImg">
+                    </div>
+                </div>
+                <div class="pre-list">
+                    <a href="#" class="arrow-prev"></a>
+                    <a href="#" class="arrow-next"></a>
+                    <ul class="list-item">
+                        <li><img src="../upload/pre.jpg" alt=""></li>
+                        <li><img src="../upload/pre.jpg" alt=""></li>
+                        <li><img src="../upload/pre.jpg" alt=""></li>
+                        <li><img src="../upload/pre.jpg" alt=""></li>
+                        <li><img src="../upload/pre.jpg" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- first part right -->
+            <div class="item-info fr">
+                <div class="phone-name">iPhone 6S(A1700) 64G 玫瑰金 移动/通信/电信4G手机</div>
+                <div class="deco">推荐下方选择[移动优惠购]：手机套餐齐搞定，不换号，每月返话费</div>
+                <dl class="summary">
+                    <dl class="sum-price">
+                        <dt>价格</dt>
+                        <dd>
+                            <i class="price">￥5299.00</i>
+                            <a href="#" class="price-cut">降价通知</a>
+                            <div class="remark">
+                                <i>累计评价：</i>
+                                <a href="#">612188</a>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="sum-pro">
+                        <dt>促销</dt>
+                        <dd>
+                            <em>加购价</em>
+                            <i>满999另加20元，满1999另加30元，满2999另加40元，即可在购物车换购热销商品</i>
+                            <a href="#">点击了解详情</a>
+                        </dd>
+                    </dl>
+                    <dl class="sum-sup">
+                        <dt>支持</dt>
+                        <dd>以旧换新，闲置手机回收。4G套餐超值抢，礼品购</dd>
+                    </dl>
+                    <dl class="col-cho">
+                        <dt>选择颜色</dt>
+                        <dd>
+                            <a href="#">玫瑰金</a>
+                            <a href="#">金色</a>
+                            <a href="#">白色</a>
+                            <a href="#">土豪金</a>
+                        </dd>
+                    </dl>
+                    <dl class="ver-cho">
+                        <dt>选择版本</dt>
+                        <dd>
+                            <a href="#">公开版</a>
+                            <a href="#">移动4G</a>
+                        </dd>
+                    </dl>
+                    <dl class="type-cho">
+                        <dt>购买方式</dt>
+                        <dd>
+                            <a href="#">官方标配</a>
+                            <a href="#">移动优惠购</a>
+                            <a href="#">电信优惠购</a>
+                        </dd>
+                    </dl>
+                    <div class="cho-btns">
+                        <div class="cho-amo">
+                            <input type="text" value="1">
+                            <a href="#" class="add">+</a>
+                            <a href="#" class="reduce">-</a>
+                        </div>
+                        <a href="#" class="addcar">加入购物车</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- secend part -->
+    <div class="pro-detail w clearfix">
+        <!-- secend part left -->
+        <div class="aside fl">
+            <div class="tab-list">
+                <ul>
+                    <li class="tab1">相关分类</li>
+                    <li class="tab2">推荐品牌</li>
+                </ul>
+            </div>
+            <div class="tab-con">
+                <ul>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li class="tab-con-list">
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                    <li>
+                        <img src="../upload/aside_img.jpg" alt="">
+                        <h5>华为 HUAWEI P20 Pro 全面屏徕卡</h5>
+                        <div class="aside-price">¥19</div>
+                        <a href="#" class="as-addcar">加入购物车</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- secend part right -->
+        <div class="detail fr">
+            <div class="de-tab">
+                <ul>
+                    <li><a href="#" class="a-first">商品介绍</a></li>
+                    <li><a href="#">规格与包装</a></li>
+                    <li><a href="#">售后保障</a></li>
+                    <li><a href="#">商品评价(50000)</a></li>
+                    <li><a href="#">手机社区</a></li>
+                </ul>
+            </div>
+            <div class="de-tab-con">
+                <div class="de-item">
+                    <ul class="de-info">
+                        <li>分辨率：1920*1080(FHD)</li>
+                        <li>后置摄像头：1200万像素</li>
+                        <li>前置摄像头：500万像素</li>
+                        <li>核数：其他</li>
+                        <li>频率：以官网信息为准</li>
+                        <li>品牌：Apple ♥关注</li>
+                        <li>商品名称：APPLEiPhone 6s Plus</li>
+                        <li>商品编号：1861098</li>
+                        <li>商品毛重：0.51kg</li>
+                        <li>商品产地：中国大陆</li>
+                        <li>热点：指纹识别，Apple Pay，金属机身，拍照神器</li>
+                        <li>系统：苹果(IOS)</li>
+                        <li>像素：1000-1600万</li>
+                        <li>机身内存：64GB</li>
+                    </ul>
+                    <p><a href="#" class="more">查看更多参数</a></p>
+                    <img src="../upload/detail_img1.jpg" alt="" class="iPhone">
+                    <img src="../upload/detail_img2.jpg" alt="" class="iPhone">
+                    <img src="../upload/detail_img3.jpg" alt="" class="iPhone">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+
+    <!-- footer start -->
+    <footer>
+        <div class="w">
+            <!-- 第一层 -->
+            <div class="ser">
+                <ul>
+                    <li>
+                        <i class="ser-icon ser-circle1"></i>
+                        <div class=ser-title>
+                            <h5>正品保证</h5>
+                            <p>正品保证，提供发票</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ser-icon ser-circle2"></i>
+                        <div class=ser-title>
+                            <h5>物流保障</h5>
+                            <p>物流保障，及时信息</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ser-icon ser-circle3"></i>
+                        <div class=ser-title>
+                            <h5>运货保险</h5>
+                            <p>运货保险，方便退货</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ser-icon ser-circle4"></i>
+                        <div class=ser-title>
+                            <h5>售后服务</h5>
+                            <p>售后服务，全心全意</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ser-icon ser-circle5"></i>
+                        <div class=ser-title>
+                            <h5>寻求帮助</h5>
+                            <p>寻求帮助，排忧解难</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 第二层 -->
+            <div class="help">
+                <dl class="help-item">
+                    <dt>购物指南</dt>
+                    <dd><a href="javascript:;">购物流程</a></dd>
+                    <dd><a href="javascript:;">会员介绍</a></dd>
+                    <dd><a href="javascript:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascript:;">常见问题</a></dd>
+                    <dd><a href="javascript:;">大家电</a></dd>
+                    <dd><a href="javascript:;">联系客服</a></dd>
+                </dl>
+                <dl class="help-item">
+                    <dt>购物指南</dt>
+                    <dd><a href="javascript:;">购物流程</a></dd>
+                    <dd><a href="javascript:;">会员介绍</a></dd>
+                    <dd><a href="javascript:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascript:;">常见问题</a></dd>
+                    <dd><a href="javascript:;">大家电</a></dd>
+                    <dd><a href="javascript:;">联系客服</a></dd>
+                </dl>
+                <dl class="help-item">
+                    <dt>购物指南</dt>
+                    <dd><a href="javascript:;">购物流程</a></dd>
+                    <dd><a href="javascript:;">会员介绍</a></dd>
+                    <dd><a href="javascript:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascript:;">常见问题</a></dd>
+                    <dd><a href="javascript:;">大家电</a></dd>
+                    <dd><a href="javascript:;">联系客服</a></dd>
+                </dl>
+                <dl class="help-item">
+                    <dt>购物指南</dt>
+                    <dd><a href="javascript:;">购物流程</a></dd>
+                    <dd><a href="javascript:;">会员介绍</a></dd>
+                    <dd><a href="javascript:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascript:;">常见问题</a></dd>
+                    <dd><a href="javascript:;">大家电</a></dd>
+                    <dd><a href="javascript:;">联系客服</a></dd>
+                </dl>
+                <dl class="help-item">
+                    <dt>购物指南</dt>
+                    <dd><a href="javascript:;">购物流程</a></dd>
+                    <dd><a href="javascript:;">会员介绍</a></dd>
+                    <dd><a href="javascript:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascript:;">常见问题</a></dd>
+                    <dd><a href="javascript:;">大家电</a></dd>
+                    <dd><a href="javascript:;">联系客服</a></dd>
+                </dl>
+                <dl class="help-item help-app">
+                    <dt>帮助中心</dt>
+                    <dd>
+                        <img src="../upload/erweima.png" alt="">
+                        <p>品优购客户端</p>
+                    </dd>
+                </dl>
+            </div>
+            <!-- 第三层 -->
+            <div class="copyright">
+                <div class="cr-links">
+                    <ul>
+                        <li><a href="javascript:;">关于我们</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">联系我们</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">联系客服</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">商家入驻</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">营销中心</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">手机品优购</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">友情链接</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">销售联盟</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">品优购社区</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">品优购公益</a></li>
+                        <li class="cr-spacer"></li>
+                        <li><a href="javascript:;">English Site</a></li>
+                    </ul>
+                </div>
+                <p class="copyright-info">
+                    地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn <br>
+                    京ICP备08001421号京公网安备110108007702
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+</body>
+
+</html>

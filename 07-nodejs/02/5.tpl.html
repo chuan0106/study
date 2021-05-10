@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <p>hello{{name}}</p>
+    我今年{{age}}岁了
+    我来自{{province}}
+    我喜欢 {{each hobbies}}|{{$value}}{{/each}}
+    <script>
+        let foo = '{{title}}';
+    </script>
+</body>
+
+</html>
+</body>

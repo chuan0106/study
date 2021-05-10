@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        overflow: hidden;
+        width: 0;
+        height: 30px;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        /* white-space: nowrap; 让我们的文字 强制一行显示 */
+        white-space: nowrap;
+        background-color: pink;
+        /* animation: w 2s linear forwards; */
+        /* steps 步长值 */
+        animation: w 2s steps(5) forwards;
+    }
+
+    @keyframes w {
+        0% {}
+
+        100% {
+            width: 200px;
+        }
+    }
+</style>
+
+<body>
+    <div>我在这儿等着你回来</div>
+</body>
+
+</html>

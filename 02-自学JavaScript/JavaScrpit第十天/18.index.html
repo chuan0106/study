@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            color: rosybrown;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+
+        console.log(location.search);  // ?uname=adny
+        // 1先去掉？ substr('起始的位置',截取的几个字符);
+        var params = decodeURI(decodeURI(location.search.substr(1)))// uname=adny
+        console.log(params);
+        // 2 利用=把字符串分隔为数组 split('=');
+        var arr = params.split('=');
+        console.log(arr);
+        var div = document.querySelector('div');
+        // 3吧数据写到div中
+        div.innerHTML = arr[1] + '欢迎您';
+
+
+
+    </script>
+</body>
+
+</html>

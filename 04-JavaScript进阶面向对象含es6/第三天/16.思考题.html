@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 思考题1
+        // var name = "The Window";
+        // var object = {
+        //     name: 'My Object',
+        //     getNameFunc: function () {
+        //         return function () {
+        //             return this.name;
+        //         };
+        //     }
+        // };
+        // console.log(object.getNameFunc()()); // 并没有产生闭包 没有局部变量 The Window 立即执行函数指向widow
+
+        // 思考题2 
+        var name = "The Window";
+        var object = {
+            name: 'My Object',
+            getNameFunc: function () {
+                var that = this;
+                return function () {
+                    return that.name;
+                };
+            }
+        };
+        console.log(object.getNameFunc()());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* input[value] { 1.
+             color: pink;
+            /* 必须是input 但是同时具有value这个属性 选择这个元素 【】 */
+
+
+        input[type=text] {
+            color: pink;
+        }
+
+        div[class^=icon] {
+            /* 首先是div 然后具有class属性 并且属性值必须是icon开头的这些元素 */
+            color: hotpink;
+        }
+
+        section[class$=data] {
+            color: red;
+        }
+
+        span[class*=v-1] {
+            color: chartreuse;
+        }
+
+        section[class$=ico] {
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <input type="text" value="请输入用户名">
+    <input type="text"> -->
+    <!-- 1.利用属性选择器可以不用借助于类或者id选择器 -->
+    <input type="text" name="" id="" value="嘿嘿嘿">
+    <input type="password" name="" id="" value="111">
+    <!-- 2.属性选择器还可以选择属性=值得某些元素  重点 务必掌握-->
+    <div class="icon1">没错 你是打酱油的</div>
+    <div class="icon2">没错 你是打酱油的</div>
+    <div class="icon3">没错 你是打酱油的</div>
+    <div class="icon4">没错 你是打酱油的</div>
+    <div>我是个打酱油的</div>
+    <!-- 3.属性选择器可以选择属性值开头的某些元素 -->
+    <section class="icon1-data">我是安其拉</section>
+    <section class="icon2-data">你哥是安其拉</section>
+    <section class="icon3-ico">那么我是谁呢</section>
+    <!-- 4.属性选择器可以选择属性值结尾的某些元素 -->
+    <span class="av-104">我就是特殊的</span>
+    <span class="av-163">我就是特殊的</span>
+    <span class="av-198">我就是特殊的</span>
+    <span class="mv-562">你们都特殊 我怎么就不能特殊呢</span>
+    <!-- 5.属性选择器可以具有包含的某些元素 -->
+</body>
+
+</html>

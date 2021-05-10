@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Push(width, height, color) {
+            this.width = width,
+                this.height = height,
+                this.color = color,
+                this.sing = function (click) {
+                    console.log(click);
+
+                }
+        }
+        var niukou = new Push('15cm', '12cm', '红色');
+        console.log(niukou);
+
+        niukou.sing('点击了三次');
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

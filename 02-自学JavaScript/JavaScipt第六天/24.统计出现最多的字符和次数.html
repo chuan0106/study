@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 有一个对象 来判断是否有该属性 对象['属性名']
+        var o = {
+            age: 18
+        }
+        if (o['sex']) {
+            console.log('里面有该属性');
+
+        } else {
+            console.log('里面没该属性');
+
+        }
+        // 判断一个字符串'abcoefoxyozopp' 中出现次数最多的字符 并统计次数
+        // 核心算法：利用charAt() 遍历这个字符串
+        // 把每个字符都存储给对象 如果对象没有该属性 就为1 如果存了就+1
+        // 遍历对象 得到最大值和该字符
+        var str = 'abcoefoxyozopp';
+        var o = [];
+        for (var i = 0; i < str.length; i++) {
+            var chas = str.charAt(i);   // chgas 是 字符串的每一个字符
+            if (o[chas]) {  //  o[cjas] 得到的值
+                o[chas]++;
+
+            } else {
+                o[chas] = 1;
+            }
+        }
+        console.log(o);
+        // 2遍历对象
+        var max = 0;
+        var ch = '';
+        for (var k in o) {
+            // k 得到是属性名
+            // o[k] 得到是属性值
+            if (o[k] > max) {
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log(max);
+        console.log('最多的字符是:' + ch);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

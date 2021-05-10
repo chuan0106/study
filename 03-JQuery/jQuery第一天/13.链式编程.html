@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/JQuery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        $(function () {
+            // 1 隐式迭代 给所有的按钮都绑定了点击事件
+            $('button').click(function () {
+                // 2 让当前元素颜色变为红色
+                // $(this).css('color', 'pink')
+                // 3 让其余的姐妹元素不变色
+                // $(this).siblings().css('color', '')
+                // 链式编程
+                // $(this).css('color', 'red').siblings().css('color', '');
+                // 我的颜色为红色 我的兄弟颜色为空
+                // $(this).siblings().css('color', 'pink');
+                // 我的兄弟变为红色 我本身不变颜色
+                $(this).siblings().parent().css('color', 'pink');
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div>哈哈哈 </div>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+    <button>快速</button>
+
+
+    <script>
+
+    </script>
+</body>
+
+</html>

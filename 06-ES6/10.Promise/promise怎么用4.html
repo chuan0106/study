@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../13.null/JQuery.min.js"></script>
+
+</head>
+
+<body>
+
+  <script>
+    Promise.all([
+      $.ajax({
+        url: './data/arr.txt',
+        dataType: 'json'
+      }),
+      $.ajax({
+        url: './data/json.txt',
+        dataType: 'json'
+      })
+    ]).then(function (results) {
+      alert('全部都成功了');
+      let [arr, json] = results;
+      console.log(arr, json);
+    }, function () {
+      alert('至少有一个失败了')
+    })
+  </script>
+
+</body>
+
+</html>

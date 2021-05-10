@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* show() {
+            alert('a');
+            yield 12;
+            alert('b');
+            return 55;
+        }
+        let gen = show();
+        let res1 = gen.next();
+        console.log(res1);  // done: false      value: 12
+
+        let res2 = gen.next();
+        console.log(res2);   //  done: true  value: undefined
+
+    </script>
+</body>
+
+</html>

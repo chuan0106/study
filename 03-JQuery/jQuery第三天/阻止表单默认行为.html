@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form id="login_form" action="http://baidu.com">
+    <div class="form-group">
+      <label for="">邮箱</label>
+      <input type="email" class="form-control" id="" name="email" placeholder="Email" autofocus>
+    </div>
+    <div class="form-group">
+      <label for="">密码</label>
+      <a class="pull-right" href="">忘记密码？</a>
+      <input type="password" class="form-control" id="" name="password" placeholder="Password">
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox">记住我
+      </label>
+    </div>
+    <button type="submit" class="btn btn-success btn-block">登录</button>
+  </form>
+  <script>
+    let sub = document.querySelector('.btn')
+    let ipt = document.querySelector('#login_form')
+    ipt.addEventListener('submit', e => {
+      e.preventDefault()
+      console.log('111');
+    })
+    ipt.onsubmit = e => {
+      e.preventDefault()
+    }
+
+  </script>
+</body>
+
+</html>

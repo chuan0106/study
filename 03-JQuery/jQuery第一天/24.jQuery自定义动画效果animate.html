@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/JQuery.min.js"></script>
+    <style type="text/css">
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+
+        $(function () {
+            $('button').click(function () {
+                $('div').animate({   // 一对象的形式传递 必须写 属性名可以不带引号 如果是符合属性则需要采用驼峰命名法 borderLeft
+                    left: 500,
+                    top: 300,
+                    opacity: 0.7
+                    // 透明度
+                }, 1000)
+            })
+
+            console.log($('div')[0].offsetWidth);
+
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <button>动起来</button>
+    <div>
+    </div>
+</body>
+
+</html>

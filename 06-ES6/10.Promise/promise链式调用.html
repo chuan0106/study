@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../13.null/JQuery.min.js"></script>
+
+</head>
+
+<body>
+
+  <script>
+    // let oDate = new Date();
+    // let arr = new Array();
+
+    // 异步代码
+    // resolve  成功了
+    // reject 失败了
+
+    // 1 创建对象
+
+    // 1 创建异步对象
+
+    new Promise((resolve, reject) => {
+      $.ajax({
+        url: './data/json.txt',
+        dataType: 'json',
+        success(arr) {
+          resolve(arr)
+        },
+        error(err) {
+          reject(err)
+        }
+
+      })
+    }).then(data => {
+      return new Promise((resolve) => {
+        resolve(data + '111')
+      })
+    }).then(data => {
+      console.log(data);
+    })
+
+  </script>
+
+</body>
+
+</html>

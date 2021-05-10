@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+    <!-- 1 修饰符 lazy  可以染发数据在失去焦点或回车才会更新 -->
+    <input v-model.lazy="message" type="text" />
+    <h2></h2>
+
+    <!-- 2 修饰符 number 本身是字符串拼接 转成number-->
+    <!-- // let age = 0
+    // age = '111'
+    // age = '222' -->
+    <input v-model.number="age" type="number" step="1" />
+    <h2>{{typeof age}} {{age}}</h2>
+
+    <!-- 3 修饰符 trim  去除两边的空格 -->
+    <input v-model.trim="name" type="text" />
+    <h2>您输入的名字: {{name}}</h2>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊小帅哥',
+        age: 18,
+        name: '   '
+      }
+    })
+
+    // let age = 0
+    // age = '111'
+    // age = '222'
+  </script>
+</body>
+
+</html>

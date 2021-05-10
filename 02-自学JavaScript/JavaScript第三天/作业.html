@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 求1~100之间搜用总数与平均值
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        console.log(sum);
+        // 2 求1~100之间所有偶数的和
+        var age = 0;
+        for (var q = 1; q <= 100; q++) {
+            if (q % 2 == 0) {
+                age += q;
+            }
+        }
+        console.log(age);
+
+
+        // 3 求100之间所有7倍数的和
+
+        var didi = 0;
+        for (var e = 1; e <= 100; e++) {
+            if (e % 8 == 0) {
+                didi += e;
+            }
+        }
+
+        console.log(didi);
+        // 4 使用for循环打印矩形  要求每次只能输出一个点
+        var heihei = '';
+        for (var p = 1; p <= 5; p++) {
+            for (var le = 1; le <= 5; le++) {
+                heihei += '丶';
+
+            }
+            heihei += '\n';
+        }
+        console.log(heihei);
+        // 5 使用for循环打印三角形
+        var haha = '';
+        for (var me = 1; me <= 5; me++) {
+            for (var de = 1; de <= me; de++) {
+                haha += '°';
+            }
+            haha += '\n';
+
+        }
+        console.log(haha);
+
+        var haha = '';
+        for (var me = 1; me <= 5; me++) {
+            for (var de = me; de <= 5; de++) {
+                haha += '°';
+            }
+            haha += '\n';
+
+        }
+        console.log(haha);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

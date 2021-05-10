@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+    <!-- 利用了子传父通信与父传子 -->
+    <cpn :number1="num1" :number2="num2" @num1change="num1change" @num2change="num2change"></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h2> number: {{number1}}</h2>
+      <h2> data:{{dumber1}} </h2>
+      <!-- <input v-model="dumber1" type="text" /> -->
+
+      <!-- 这里使用的是 v-model 的原理 -->
+      <input type="text" :value="dumber1" @input="num1Input">
+      <h2> number: {{number2}}</h2>
+      <h2> data:{{dumber2}} </h2>
+      <!-- <input v-model="dumber2" type="text" /> -->
+      <input type="text" :value="dumber2" @input="num2Input">
+
+    </div>
+  </template>
+  <script>
+    // 子组件修改input 的值 并且 父组件也修改
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊小帅哥',
+        num1: 1,
+        num2: 2
+      },
+      methods: {
+        num1change(value) {
+          this.num1 = Number(value) // 字符串转成数字
+        },
+        num2change(value) {
+          this.num2 = Number(value)
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          props: {
+            number1: Number,
+            number2: Number
+          },
+          data() {
+            return {
+              dumber1: this.number1,
+              dumber2: this.number2
+            }
+          },
+          methods: {
+            // 让第二个 input 中的值 一直大于第一个的一百倍
+
+            // 1.将 input 中的 value 赋值到dumber中
+            num1Input(event) {
+              console.log(event);
+              // 2. 为父组件可以修改值 发出一个事件
+              this.dumber1 = event.target.value  // 看得懂吧 兄弟
+              this.$emit('num1change', this.dumber1)
+              // 3.同时修改dumber 的值
+              this.dumber2 = this.dumber1 * 100
+              this.$emit('num2change', this.dumber2)
+            },
+            num2Input(event) {
+              console.log(event);
+              this.dumber1 = this.dumber2 / 10
+              this.$emit('num1change', this.dumber1)
+
+              this.dumber2 = event.target.value
+              this.$emit('num2change', this.dumber2)
+            }
+          },
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

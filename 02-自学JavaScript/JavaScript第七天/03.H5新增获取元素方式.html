@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <div class="box"></div>
+    <div id="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+    <script>
+        // 1  getElemntsByClassName  根据类名获得或斜元素集合
+        var boxs = document.getElementsByClassName('box');
+        console.log(boxs[0]);
+        // 2 querySelector 返回指定选择器的第一个元素对象  切记 里面的选择器需要加符号  类.box   id 加#nav 
+        var Box = document.querySelector('.box')
+        console.log(Box);
+        var nav = document.querySelector('#nav')
+        console.log(nav);
+        var li = document.querySelector('li');
+        console.log(li);
+        // 3 querySelectrAll() 返回指定选择器所有元素对象集合
+        var Allbox = document.querySelectorAll('.box');
+        console.log(Allbox);
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 400px;
+        height: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    thead tr {
+        height: 30px;
+        background-color: skyblue;
+    }
+
+    tbody tr {
+        height: 25px;
+    }
+
+    tbody td {
+        border-bottom: 1px solid #d7d7d7;
+        font-size: 14px;
+        color: blue;
+    }
+</style>
+
+<body>
+
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>作品</th>
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>回忆三部曲</td>
+                    <td>1995</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>未麻的部屋</td>
+                    <td>1997</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>千年女优</td>
+                    <td>2001</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>妄想代理人</td>
+                    <td>2004</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>红辣椒</td>
+                    <td>2006</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>东京教父</td>
+                    <td>2003</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            // 1 获取元素 获取的是tbody里面 的行
+            var trs = document.querySelector('tbody').querySelectorAll('tr');
+            // 2 利用循环绑定注册时间
+            for (var i = 0; i < trs.length; i++) {
+                // 3 鼠标经过时间  onmouseover
+                if (i % 2 == 0) {
+                    trs[i].style.backgroundColor = "#ffcccc";
+                    //添加鼠标经过事件
+                    trs[i].onmouseover = function () {
+                        this.style.backgroundColor = "#ccffff"
+                    }
+                    //添加鼠标离开事件
+                    trs[i].onmouseout = function () {
+                        this.style.backgroundColor = "#ffcccc"
+                    }
+                }
+                else {
+                    trs[i].style.backgroundColor = "#ffffcc";
+
+                    trs[i].onmouseover = function () {
+                        this.style.backgroundColor = "#ccffff"
+                    }
+                    trs[i].onmouseout = function () {
+                        this.style.backgroundColor = "#ffffcc"
+                    }
+                }
+            }
+        </script>
+    </body>
+
+</html>

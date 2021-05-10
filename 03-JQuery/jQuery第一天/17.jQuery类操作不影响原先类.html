@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/JQuery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transition: all 0.5s;
+        }
+
+        .tow {
+            transform: rotate(720deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one"></div>
+    <script>
+        // var one = document.querySelector('.one');
+        // one.className = 'tow';  // 原生js 会覆盖以前的类名
+        // $('div').addClass('tow'); // 这个addClass 相当于追加类名 不影响以前的类名
+        $('.one').removeClass('tow');
+
+    </script>
+</body>
+
+</html>

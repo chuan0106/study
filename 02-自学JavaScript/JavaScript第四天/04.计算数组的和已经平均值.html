@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1 求数组{2，6，1，7，4，}里面所有元素的和已经平均值
+        // 1.1 声明一个求和变量 sun
+        // 2.2 遍历这个数字 吧里面每个数组元素加到 sum里面
+        // 2.3 用求和变量 sun初一数组的长度就可以得到数组的平均值
+        var sum = 0;
+        var arr = [2, 6, 1, 7, 4];
+        var average = 0;
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+            sum += arr[i]; // 我们加的是 数组元素  不是计数器
+
+        }
+        average = sum / arr.length;
+
+        console.log(average, sum);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

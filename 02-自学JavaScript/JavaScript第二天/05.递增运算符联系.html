@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var a = 10;
+        ++a;
+        // 11
+        var b = ++a + 2;
+        // a = 12 ++a = 12
+        console.log(b);
+        // 14
+
+        var c = 10;
+        c++;
+        var d = c++ + 2;
+        console.log(d);
+        // 12
+
+        var e = 10;
+        var f = e++ + ++e;
+        console.log(f);
+        // 20
+        // 后置自增 先表达式返回原值 后面变量在自加一
+
+
+
+
+    </script>
+</body>
+
+</html>

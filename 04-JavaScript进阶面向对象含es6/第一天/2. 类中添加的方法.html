@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1 创建类class 创建一个明星类
+        class Star {
+            constructor(uname, age) {
+                this.uname = uname;
+                this.age = age;
+            }
+            sing(sang) {
+                // console.log('我要开始唱歌咯');
+                console.log(this.uname + sang);
+            }
+        }
+        // 2 利用类创建对象 new
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 21);
+        console.log(ldh);
+        console.log(zxy);
+        // (1) 我们类里面所有的函数不需要写function
+        // (2) 多个函数 方法之间 不需要添加都好分割
+        ldh.sing('冰雨');
+        zxy.sing('李香兰');
+    </script>
+</body>
+
+</html>

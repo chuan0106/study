@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/JQuery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>我是ol 的li</li>
+        <li>我是ol 的li</li>
+        <li class="item">我是ol 的li</li>
+        <li>我是ol 的li</li>
+        <li>我是ol 的li</li>
+        <li>我是ol 的li</li>
+    </ol>
+    11
+    <ul>
+        <li>我说ul 的li</li>
+        <li>我说ul 的li</li>
+        <li class="ite">我说ul 的li</li>
+        <li>我说ul 的li</li>
+        <li>我说ul 的li</li>
+        <li>我说ul 的li</li>
+    </ul>
+    <div class="current">俺有current</div>
+    <div>俺木有current</div>
+    <script>
+        $(function () {
+            // 1 兄弟元素  siblings  除了自身元素之外的所有亲兄弟
+            $('ol .item').siblings('li').css('color', 'red');
+            // nexAll 查找当前元素之后的同辈元素
+            // $('ul .ite').nextAll().css('color', 'red');
+            // prevAll 查找当前元素之前的同辈元素
+            // $('ul .ite').prevAll().css('color', 'pink');
+
+
+            // 2 第n个元素
+            var index = 3;
+            // 我们可以利用选择器方法的方式选择
+            // (1) $('ul li:eq(3)').css('color', 'pink');
+            // (2) 我们可以利用选择方法的方式选择 更推荐这种写法
+            // $('ul li').eq(4).css('color', 'pink');
+            $('ul li').eq(index).css('color', 'pink');
+
+            // 3 判断是否有某个类名
+            console.log($('div:first').hasClass('current'));
+            console.log($('div:last').hasClass('current'));
+            // 重点记住 parent()  children()  find()  siblings() eq()
+        })
+    </script>
+</body>
+
+</html>

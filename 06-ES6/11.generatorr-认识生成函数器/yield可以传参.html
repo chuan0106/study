@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* show(num1, num2) {
+            alert(`${num1},${num2}`)
+            alert('a');
+            let a = yield;
+            alert(a);
+
+            alert('b');
+        }
+        let gen = show(99, 92);
+        gen.next(12);  //没法给yield传参
+        gen.next(5);
+    </script>
+</body>
+
+</html>

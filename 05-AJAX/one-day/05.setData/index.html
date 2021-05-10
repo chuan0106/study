@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- form 表单发送数据 -->
+    <!-- action 指定提交的 url -->
+    <!-- 提交的方式  method
+    get 不设置 默认是 get
+    post
+     表单元素 需要提交的数据 使用name 属性 进行标记 name属性的值 可以随便起 但是最好要有意义
+    -->
+    <form action="./getData.php" method="get">
+        <!-- 文本框 -->
+        <input name="starName" type="text" placeholder="请您输入喜欢的英雄">
+        <!-- 点击提交按钮 -->
+        <input type="submit">
+    </form>
+</body>
+
+</html>
